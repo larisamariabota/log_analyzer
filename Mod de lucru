@@ -6,3 +6,30 @@ Pentru oricare din tipul de fisiere log se va converti la un fisier log standrad
      *custume
      *JSON 
      *stack trage
+
+     Fisierul standard va avea urmatoarea structura:
+            {
+    "timestamp": datetime sau None,
+    "level": "DEBUG" / "INFO" / "WARN" / "ERROR" / "FATAL" / None,
+    "message": "textul mesajului",
+    "ip": "x.x.x.x" sau None,
+    "method": "GET" / "POST" / etc. sau None,
+    "path": "/index" / "/login" / etc. sau None,
+    "status": int sau None,          # cod HTTP (200, 404, 500)
+    "user_agent": "Mozilla/5.0" sau None,
+    "process": "sshd" / "kernel" / None,
+    "source": "apache" / "nginx" / "syslog" / "json" / "custom"
+}
+
+1.Apche are campurile :
+     timestamp
+
+         ip
+
+        method
+
+         path
+
+        status
+
+            user_agent (uneori)
