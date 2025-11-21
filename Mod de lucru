@@ -1,0 +1,8 @@
+Pentru oricare din tipul de fisiere log se va converti la un fisier log standrad
+    - tipuri de fisiere
+     *apache
+     *nginx
+     *syslog
+     *custume
+     *JSON 
+     *stack trage
