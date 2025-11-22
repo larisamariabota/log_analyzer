@@ -32,4 +32,9 @@ Pentru oricare din tipul de fisiere log se va converti la un fisier log standrad
 
         status
 
-            user_agent (uneori)
+2.nginx
+      sunt doua tipuri: de acces 
+                  192.168.0.10 - - [21/Nov/2025:10:20:45 +0200] "GET /index.html HTTP/1.1" 200 512
+                             este identic cu apache, dar in detector.py apache ruleaza primul si e ok
+                       de error     2024/10/10 14:33:12 [error] 1234#0: *25 open() "/var/www/html/file.html" failed (2: No such file or directory)
+    
