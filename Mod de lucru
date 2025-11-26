@@ -47,4 +47,13 @@ Pentru oricare din tipul de fisiere log se va converti la un fisier log standrad
 
               din massage putem sa exetragem si ip
 
-              
+
+4.JSON 
+        {"timestamp": "2025-11-26T09:01:12", "level": "INFO", "message": "Server started"}
+        ip
+        timestamp
+        process
+        message
+        source
+         // aici avem librarie speciala pentru json
+
