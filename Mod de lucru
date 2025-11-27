@@ -1,3 +1,6 @@
+
+               ETAPA 1
+
 Pentru oricare din tipul de fisiere log se va converti la un fisier log standrad
     - tipuri de fisiere
      *apache
@@ -64,4 +67,45 @@ Pentru oricare din tipul de fisiere log se va converti la un fisier log standrad
         "source": "custom"
 
 
-     
+              ETAPA 2
+
+
+    Se va cititi fiecare linie din fisierul dat, se va pune intr un dictionar separat, dictionarle ese vor pune intr o lista          
+          programul loader.py  : citeste linnie cu linie din fisierul log si o transpune in dictionarul standard, apor o pune intr o lista de dictionare
+
+                  INPUT : un fisier de tip log 
+                  OUTPUT :   [
+  {
+    "timestamp": datetime(...),
+    "level": "INFO",
+    "message": "GET /index.html",
+    "ip": "192.168.1.10",
+    "source": "apache"
+  },
+  {
+    "timestamp": datetime(...),
+    "level": "ERROR",
+    "message": "Failed DB connection",
+    "ip": "10.0.0.5",
+    "source": "apache"
+  },
+  ...
+]
+           MOD DE LUCRU
+
+           function load_logs(file_path):
+
+    1. creezi o listă goală: entries = []
+
+    2. deschizi fișierul
+
+    3. pentru fiecare linie:
+            - cureți linia (strip)
+            - dacă e goală → sari peste
+            - trimiți linia la parse_line(line)
+            - parse_line returnează:
+                * fie un dicționar standard
+                * fie None (dacă linia e invalidă)
+            - dacă nu e None → adaugi dicționarul în entries
+
+    4. la final returnezi lista entries
