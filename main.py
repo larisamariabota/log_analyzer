@@ -1,10 +1,11 @@
+from loader import load_file
+from grouping.profile_by_ip import profile_by_ip
+from printer import print_ip_profiles
 
-from analyzer.loader import load_file
-from analyzer.group_level import count_by_level
 if __name__ == "__main__":
-  lista=[]
-  lista=load_file("test_logs/syslog_500.log")
+    lista = load_file("test_logs/apache_300.log")
+    grouped = profile_by_ip(lista)
+    print_ip_profiles(grouped)
 
-  grouped=count_by_level(lista)
-  print(grouped)
+
  

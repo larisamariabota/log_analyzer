@@ -93,19 +93,17 @@ Pentru oricare din tipul de fisiere log se va converti la un fisier log standrad
 ]
            MOD DE LUCRU
 
-           function load_logs(file_path):
+           functia load_logs(file_path):
 
-    1. creezi o listă goală: entries = []
+                      1. creezi o listă goală: entries = []
 
-    2. deschizi fișierul
+                       2. deschizi fișierul
 
-    3. pentru fiecare linie:
-            - cureți linia (strip)
-            - dacă e goală → sari peste
-            - trimiți linia la parse_line(line)
-            - parse_line returnează:
-                * fie un dicționar standard
-                * fie None (dacă linia e invalidă)
-            - dacă nu e None → adaugi dicționarul în entries
+                       3. pentru fiecare linie:
+        
+                        4. la final returnezi lista entries
 
-    4. la final returnezi lista entries
+
+           In folderul grouping se vor forma dictionare in functie de fieare elemnt din dictionarul standard, cu ajutorul listei de dictionare
+
+           

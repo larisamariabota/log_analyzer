@@ -1,0 +1,300 @@
+{"timestamp":"2025-01-15T19:23:55","level":"INFO","message":"OK","ip":"192.168.0.0","method":"DELETE","path":"/product/123","status":500}
+{"timestamp":"2025-01-15T09:32:40","level":"WARN","message":"OK","ip":"192.168.0.2","method":"GET","path":"/search?q=test","status":200}
+{"timestamp":"2025-01-15T18:24:49","level":"INFO","message":"Deleted","ip":"192.168.0.6","method":"DELETE","path":"/checkout","status":400}
+{"timestamp":"2025-01-15T13:39:01","level":"ERROR","message":"Not found","ip":"192.168.0.13","method":"PUT","path":"/product/123","status":400}
+{"timestamp":"2025-01-15T01:07:04","level":"INFO","message":"Deleted","ip":"192.168.0.6","method":"PUT","path":"/admin","status":302}
+{"timestamp":"2025-01-15T06:06:10","level":"WARN","message":"Access denied","ip":"192.168.0.16","method":"POST","path":"/products","status":400}
+{"timestamp":"2025-01-15T18:01:52","level":"WARN","message":"Not found","ip":"192.168.0.9","method":"DELETE","path":"/register","status":500}
+{"timestamp":"2025-01-15T07:11:31","level":"ERROR","message":"OK","ip":"192.168.0.3","method":"DELETE","path":"/dashboard","status":403}
+{"timestamp":"2025-01-15T15:24:13","level":"INFO","message":"Update","ip":"192.168.0.8","method":"POST","path":"/product/123","status":403}
+{"timestamp":"2025-01-15T19:15:15","level":"ERROR","message":"Failed","ip":"192.168.0.11","method":"POST","path":"/register","status":200}
+{"timestamp":"2025-01-15T16:25:13","level":"ERROR","message":"Processing","ip":"192.168.0.4","method":"GET","path":"/search?q=test","status":503}
+{"timestamp":"2025-01-15T15:56:17","level":"WARN","message":"Timeout","ip":"192.168.0.2","method":"DELETE","path":"/search?q=test","status":400}
+{"timestamp":"2025-01-15T21:18:42","level":"ERROR","message":"Failed","ip":"192.168.0.18","method":"POST","path":"/api/search","status":301}
+{"timestamp":"2025-01-15T03:37:25","level":"WARN","message":"Processing","ip":"192.168.0.10","method":"PUT","path":"/checkout","status":200}
+{"timestamp":"2025-01-15T22:13:14","level":"INFO","message":"Processing","ip":"192.168.0.17","method":"POST","path":"/search?q=test","status":302}
+{"timestamp":"2025-01-15T08:49:53","level":"WARN","message":"Not found","ip":"192.168.0.14","method":"DELETE","path":"/api/search","status":403}
+{"timestamp":"2025-01-15T16:51:30","level":"ERROR","message":"OK","ip":"192.168.0.5","method":"PUT","path":"/product/123","status":301}
+{"timestamp":"2025-01-15T22:19:52","level":"ERROR","message":"Processing","ip":"192.168.0.11","method":"DELETE","path":"/register","status":403}
+{"timestamp":"2025-01-15T12:20:59","level":"INFO","message":"Deleted","ip":"192.168.0.18","method":"DELETE","path":"/products","status":502}
+{"timestamp":"2025-01-15T23:56:48","level":"INFO","message":"OK","ip":"192.168.0.8","method":"POST","path":"/search?q=test","status":301}
+{"timestamp":"2025-01-15T06:04:12","level":"INFO","message":"Timeout","ip":"192.168.0.5","method":"PUT","path":"/api/users","status":302}
+{"timestamp":"2025-01-15T01:25:12","level":"WARN","message":"Timeout","ip":"192.168.0.11","method":"GET","path":"/api/users","status":200}
+{"timestamp":"2025-01-15T14:03:00","level":"WARN","message":"Processing","ip":"192.168.0.6","method":"POST","path":"/api/search","status":401}
+{"timestamp":"2025-01-15T05:06:23","level":"WARN","message":"Failed","ip":"192.168.0.1","method":"GET","path":"/profile","status":302}
+{"timestamp":"2025-01-15T01:54:51","level":"WARN","message":"Access denied","ip":"192.168.0.7","method":"POST","path":"/cart","status":500}
+{"timestamp":"2025-01-15T02:37:52","level":"ERROR","message":"Not found","ip":"192.168.0.12","method":"POST","path":"/profile","status":401}
+{"timestamp":"2025-01-15T17:45:25","level":"ERROR","message":"Processing","ip":"192.168.0.5","method":"PUT","path":"/cart","status":401}
+{"timestamp":"2025-01-15T11:59:38","level":"ERROR","message":"Not found","ip":"192.168.0.11","method":"PUT","path":"/logout","status":500}
+{"timestamp":"2025-01-15T12:15:45","level":"INFO","message":"Access denied","ip":"192.168.0.12","method":"GET","path":"/login","status":502}
+{"timestamp":"2025-01-15T20:57:23","level":"WARN","message":"Not found","ip":"192.168.0.6","method":"POST","path":"/products","status":403}
+{"timestamp":"2025-01-15T02:04:49","level":"ERROR","message":"Not found","ip":"192.168.0.15","method":"GET","path":"/admin","status":404}
+{"timestamp":"2025-01-15T03:31:26","level":"INFO","message":"Processing","ip":"192.168.0.18","method":"DELETE","path":"/logout","status":403}
+{"timestamp":"2025-01-15T10:35:23","level":"WARN","message":"Not found","ip":"192.168.0.6","method":"GET","path":"/cart","status":403}
+{"timestamp":"2025-01-15T05:12:11","level":"WARN","message":"Update","ip":"192.168.0.9","method":"POST","path":"/api/search","status":403}
+{"timestamp":"2025-01-15T01:49:37","level":"ERROR","message":"Deleted","ip":"192.168.0.14","method":"GET","path":"/admin","status":500}
+{"timestamp":"2025-01-15T04:35:09","level":"INFO","message":"OK","ip":"192.168.0.17","method":"PUT","path":"/dashboard","status":401}
+{"timestamp":"2025-01-15T14:54:48","level":"ERROR","message":"Processing","ip":"192.168.0.4","method":"PUT","path":"/profile","status":200}
+{"timestamp":"2025-01-15T15:27:35","level":"ERROR","message":"Not found","ip":"192.168.0.5","method":"GET","path":"/cart","status":302}
+{"timestamp":"2025-01-15T21:31:35","level":"ERROR","message":"Deleted","ip":"192.168.0.4","method":"POST","path":"/api/users","status":502}
+{"timestamp":"2025-01-15T16:00:37","level":"ERROR","message":"Processing","ip":"192.168.0.19","method":"GET","path":"/dashboard","status":401}
+{"timestamp":"2025-01-15T19:45:57","level":"WARN","message":"Failed","ip":"192.168.0.16","method":"PUT","path":"/dashboard","status":200}
+{"timestamp":"2025-01-15T07:53:37","level":"ERROR","message":"Failed","ip":"192.168.0.9","method":"PUT","path":"/api/users","status":403}
+{"timestamp":"2025-01-15T08:54:31","level":"INFO","message":"Timeout","ip":"192.168.0.14","method":"POST","path":"/api/search","status":403}
+{"timestamp":"2025-01-15T02:14:29","level":"INFO","message":"Deleted","ip":"192.168.0.3","method":"GET","path":"/cart","status":500}
+{"timestamp":"2025-01-15T00:09:20","level":"INFO","message":"Deleted","ip":"192.168.0.11","method":"DELETE","path":"/register","status":404}
+{"timestamp":"2025-01-15T18:01:08","level":"ERROR","message":"Deleted","ip":"192.168.0.1","method":"PUT","path":"/api/users","status":400}
+{"timestamp":"2025-01-15T18:50:38","level":"WARN","message":"Failed","ip":"192.168.0.4","method":"DELETE","path":"/product/123","status":302}
+{"timestamp":"2025-01-15T00:17:37","level":"INFO","message":"Update","ip":"192.168.0.19","method":"GET","path":"/dashboard","status":403}
+{"timestamp":"2025-01-15T09:23:45","level":"WARN","message":"OK","ip":"192.168.0.17","method":"POST","path":"/product/123","status":400}
+{"timestamp":"2025-01-15T18:30:26","level":"INFO","message":"Failed","ip":"192.168.0.2","method":"GET","path":"/profile","status":404}
+{"timestamp":"2025-01-15T21:22:09","level":"INFO","message":"OK","ip":"192.168.0.2","method":"DELETE","path":"/admin","status":404}
+{"timestamp":"2025-01-15T01:03:37","level":"ERROR","message":"Deleted","ip":"192.168.0.18","method":"DELETE","path":"/api/search","status":302}
+{"timestamp":"2025-01-15T06:45:05","level":"WARN","message":"Processing","ip":"192.168.0.18","method":"POST","path":"/dashboard","status":200}
+{"timestamp":"2025-01-15T19:32:57","level":"WARN","message":"OK","ip":"192.168.0.11","method":"POST","path":"/checkout","status":200}
+{"timestamp":"2025-01-15T02:52:16","level":"ERROR","message":"Not found","ip":"192.168.0.1","method":"GET","path":"/register","status":200}
+{"timestamp":"2025-01-15T11:32:17","level":"ERROR","message":"Access denied","ip":"192.168.0.14","method":"GET","path":"/api/search","status":503}
+{"timestamp":"2025-01-15T23:30:13","level":"INFO","message":"OK","ip":"192.168.0.1","method":"GET","path":"/register","status":200}
+{"timestamp":"2025-01-15T01:21:54","level":"WARN","message":"Access denied","ip":"192.168.0.17","method":"PUT","path":"/login","status":403}
+{"timestamp":"2025-01-15T11:35:50","level":"INFO","message":"Not found","ip":"192.168.0.11","method":"GET","path":"/register","status":302}
+{"timestamp":"2025-01-15T14:50:02","level":"WARN","message":"OK","ip":"192.168.0.3","method":"POST","path":"/api/search","status":403}
+{"timestamp":"2025-01-15T01:28:00","level":"INFO","message":"OK","ip":"192.168.0.11","method":"DELETE","path":"/logout","status":404}
+{"timestamp":"2025-01-15T10:54:03","level":"ERROR","message":"Timeout","ip":"192.168.0.1","method":"POST","path":"/products","status":301}
+{"timestamp":"2025-01-15T16:38:49","level":"WARN","message":"Processing","ip":"192.168.0.19","method":"GET","path":"/search?q=test","status":200}
+{"timestamp":"2025-01-15T14:26:17","level":"INFO","message":"OK","ip":"192.168.0.9","method":"PUT","path":"/login","status":302}
+{"timestamp":"2025-01-15T20:15:26","level":"ERROR","message":"Update","ip":"192.168.0.8","method":"PUT","path":"/api/search","status":301}
+{"timestamp":"2025-01-15T02:46:23","level":"WARN","message":"Failed","ip":"192.168.0.1","method":"POST","path":"/search?q=test","status":401}
+{"timestamp":"2025-01-15T21:37:34","level":"WARN","message":"Processing","ip":"192.168.0.10","method":"PUT","path":"/register","status":500}
+{"timestamp":"2025-01-15T19:53:56","level":"INFO","message":"Timeout","ip":"192.168.0.7","method":"POST","path":"/logout","status":404}
+{"timestamp":"2025-01-15T05:35:23","level":"WARN","message":"Failed","ip":"192.168.0.2","method":"GET","path":"/products","status":403}
+{"timestamp":"2025-01-15T12:13:09","level":"INFO","message":"Failed","ip":"192.168.0.5","method":"DELETE","path":"/search?q=test","status":404}
+{"timestamp":"2025-01-15T05:29:13","level":"INFO","message":"Processing","ip":"192.168.0.1","method":"POST","path":"/search?q=test","status":502}
+{"timestamp":"2025-01-15T04:21:18","level":"ERROR","message":"OK","ip":"192.168.0.0","method":"GET","path":"/product/123","status":503}
+{"timestamp":"2025-01-15T07:40:39","level":"ERROR","message":"OK","ip":"192.168.0.3","method":"DELETE","path":"/search?q=test","status":503}
+{"timestamp":"2025-01-15T00:23:09","level":"WARN","message":"Not found","ip":"192.168.0.1","method":"DELETE","path":"/register","status":200}
+{"timestamp":"2025-01-15T07:28:36","level":"ERROR","message":"Access denied","ip":"192.168.0.18","method":"PUT","path":"/admin","status":404}
+{"timestamp":"2025-01-15T12:09:02","level":"WARN","message":"Deleted","ip":"192.168.0.8","method":"POST","path":"/dashboard","status":503}
+{"timestamp":"2025-01-15T16:07:19","level":"ERROR","message":"OK","ip":"192.168.0.19","method":"POST","path":"/profile","status":403}
+{"timestamp":"2025-01-15T17:25:24","level":"ERROR","message":"Not found","ip":"192.168.0.1","method":"PUT","path":"/login","status":404}
+{"timestamp":"2025-01-15T07:20:42","level":"WARN","message":"Not found","ip":"192.168.0.3","method":"GET","path":"/profile","status":500}
+{"timestamp":"2025-01-15T13:24:51","level":"ERROR","message":"Update","ip":"192.168.0.7","method":"POST","path":"/product/123","status":401}
+{"timestamp":"2025-01-15T06:39:16","level":"WARN","message":"Failed","ip":"192.168.0.11","method":"GET","path":"/search?q=test","status":404}
+{"timestamp":"2025-01-15T20:06:35","level":"ERROR","message":"Failed","ip":"192.168.0.2","method":"GET","path":"/api/search","status":500}
+{"timestamp":"2025-01-15T11:23:34","level":"INFO","message":"Update","ip":"192.168.0.11","method":"PUT","path":"/profile","status":302}
+{"timestamp":"2025-01-15T18:27:03","level":"ERROR","message":"Access denied","ip":"192.168.0.6","method":"PUT","path":"/logout","status":404}
+{"timestamp":"2025-01-15T16:40:08","level":"INFO","message":"Access denied","ip":"192.168.0.17","method":"POST","path":"/api/search","status":500}
+{"timestamp":"2025-01-15T08:25:47","level":"ERROR","message":"Update","ip":"192.168.0.6","method":"PUT","path":"/products","status":502}
+{"timestamp":"2025-01-15T13:23:39","level":"ERROR","message":"Update","ip":"192.168.0.2","method":"POST","path":"/checkout","status":404}
+{"timestamp":"2025-01-15T13:45:21","level":"WARN","message":"Update","ip":"192.168.0.19","method":"DELETE","path":"/search?q=test","status":404}
+{"timestamp":"2025-01-15T09:31:31","level":"WARN","message":"Access denied","ip":"192.168.0.5","method":"POST","path":"/products","status":403}
+{"timestamp":"2025-01-15T17:48:46","level":"ERROR","message":"Timeout","ip":"192.168.0.7","method":"GET","path":"/cart","status":401}
+{"timestamp":"2025-01-15T02:18:16","level":"ERROR","message":"Access denied","ip":"192.168.0.16","method":"DELETE","path":"/login","status":200}
+{"timestamp":"2025-01-15T17:37:53","level":"WARN","message":"Deleted","ip":"192.168.0.12","method":"DELETE","path":"/search?q=test","status":401}
+{"timestamp":"2025-01-15T20:03:54","level":"INFO","message":"OK","ip":"192.168.0.14","method":"DELETE","path":"/search?q=test","status":301}
+{"timestamp":"2025-01-15T06:24:34","level":"ERROR","message":"Not found","ip":"192.168.0.8","method":"GET","path":"/profile","status":500}
+{"timestamp":"2025-01-15T07:47:10","level":"WARN","message":"Processing","ip":"192.168.0.17","method":"POST","path":"/cart","status":403}
+{"timestamp":"2025-01-15T04:51:20","level":"INFO","message":"OK","ip":"192.168.0.8","method":"POST","path":"/dashboard","status":401}
+{"timestamp":"2025-01-15T22:51:57","level":"WARN","message":"Deleted","ip":"192.168.0.0","method":"DELETE","path":"/admin","status":400}
+{"timestamp":"2025-01-15T15:32:10","level":"INFO","message":"Processing","ip":"192.168.0.12","method":"GET","path":"/logout","status":404}
+{"timestamp":"2025-01-15T12:36:03","level":"INFO","message":"Timeout","ip":"192.168.0.17","method":"DELETE","path":"/profile","status":502}
+{"timestamp":"2025-01-15T01:16:05","level":"ERROR","message":"Update","ip":"192.168.0.12","method":"PUT","path":"/checkout","status":500}
+{"timestamp":"2025-01-15T02:49:32","level":"ERROR","message":"OK","ip":"192.168.0.7","method":"PUT","path":"/checkout","status":301}
+{"timestamp":"2025-01-15T18:13:50","level":"INFO","message":"Failed","ip":"192.168.0.2","method":"GET","path":"/dashboard","status":502}
+{"timestamp":"2025-01-15T09:48:26","level":"WARN","message":"Processing","ip":"192.168.0.5","method":"PUT","path":"/register","status":401}
+{"timestamp":"2025-01-15T03:33:51","level":"ERROR","message":"Update","ip":"192.168.0.14","method":"DELETE","path":"/login","status":401}
+{"timestamp":"2025-01-15T13:54:58","level":"ERROR","message":"Deleted","ip":"192.168.0.1","method":"DELETE","path":"/cart","status":302}
+{"timestamp":"2025-01-15T15:44:36","level":"INFO","message":"OK","ip":"192.168.0.3","method":"DELETE","path":"/logout","status":403}
+{"timestamp":"2025-01-15T08:21:03","level":"ERROR","message":"Update","ip":"192.168.0.2","method":"GET","path":"/checkout","status":502}
+{"timestamp":"2025-01-15T19:05:53","level":"ERROR","message":"OK","ip":"192.168.0.9","method":"GET","path":"/dashboard","status":401}
+{"timestamp":"2025-01-15T16:55:19","level":"ERROR","message":"Update","ip":"192.168.0.18","method":"PUT","path":"/products","status":500}
+{"timestamp":"2025-01-15T14:08:33","level":"INFO","message":"Not found","ip":"192.168.0.19","method":"GET","path":"/cart","status":403}
+{"timestamp":"2025-01-15T02:58:54","level":"ERROR","message":"Deleted","ip":"192.168.0.10","method":"GET","path":"/cart","status":404}
+{"timestamp":"2025-01-15T07:26:45","level":"INFO","message":"Timeout","ip":"192.168.0.0","method":"GET","path":"/search?q=test","status":500}
+{"timestamp":"2025-01-15T14:47:36","level":"WARN","message":"Timeout","ip":"192.168.0.6","method":"GET","path":"/register","status":302}
+{"timestamp":"2025-01-15T10:22:35","level":"WARN","message":"Processing","ip":"192.168.0.14","method":"GET","path":"/admin","status":503}
+{"timestamp":"2025-01-15T18:59:44","level":"ERROR","message":"Timeout","ip":"192.168.0.8","method":"DELETE","path":"/api/users","status":200}
+{"timestamp":"2025-01-15T21:31:50","level":"ERROR","message":"Update","ip":"192.168.0.6","method":"GET","path":"/cart","status":502}
+{"timestamp":"2025-01-15T20:25:22","level":"ERROR","message":"Timeout","ip":"192.168.0.5","method":"DELETE","path":"/api/search","status":400}
+{"timestamp":"2025-01-15T02:55:25","level":"INFO","message":"Timeout","ip":"192.168.0.1","method":"POST","path":"/search?q=test","status":301}
+{"timestamp":"2025-01-15T21:17:58","level":"ERROR","message":"Failed","ip":"192.168.0.15","method":"PUT","path":"/cart","status":302}
+{"timestamp":"2025-01-15T11:05:56","level":"WARN","message":"Not found","ip":"192.168.0.11","method":"GET","path":"/dashboard","status":404}
+{"timestamp":"2025-01-15T21:03:49","level":"WARN","message":"Processing","ip":"192.168.0.1","method":"PUT","path":"/products","status":200}
+{"timestamp":"2025-01-15T06:15:16","level":"ERROR","message":"Deleted","ip":"192.168.0.15","method":"GET","path":"/logout","status":401}
+{"timestamp":"2025-01-15T05:49:04","level":"WARN","message":"OK","ip":"192.168.0.16","method":"DELETE","path":"/checkout","status":502}
+{"timestamp":"2025-01-15T17:30:47","level":"INFO","message":"Update","ip":"192.168.0.2","method":"PUT","path":"/search?q=test","status":404}
+{"timestamp":"2025-01-15T15:00:09","level":"WARN","message":"Failed","ip":"192.168.0.17","method":"DELETE","path":"/logout","status":301}
+{"timestamp":"2025-01-15T12:11:18","level":"ERROR","message":"Update","ip":"192.168.0.13","method":"DELETE","path":"/cart","status":502}
+{"timestamp":"2025-01-15T08:20:26","level":"ERROR","message":"Update","ip":"192.168.0.2","method":"POST","path":"/api/search","status":404}
+{"timestamp":"2025-01-15T03:31:09","level":"INFO","message":"Deleted","ip":"192.168.0.17","method":"DELETE","path":"/logout","status":404}
+{"timestamp":"2025-01-15T04:12:51","level":"ERROR","message":"Not found","ip":"192.168.0.13","method":"PUT","path":"/profile","status":503}
+{"timestamp":"2025-01-15T20:00:21","level":"WARN","message":"Failed","ip":"192.168.0.12","method":"PUT","path":"/cart","status":302}
+{"timestamp":"2025-01-15T07:52:31","level":"ERROR","message":"Timeout","ip":"192.168.0.12","method":"GET","path":"/checkout","status":400}
+{"timestamp":"2025-01-15T11:36:13","level":"INFO","message":"Processing","ip":"192.168.0.11","method":"PUT","path":"/cart","status":302}
+{"timestamp":"2025-01-15T20:16:38","level":"ERROR","message":"Timeout","ip":"192.168.0.10","method":"GET","path":"/api/users","status":200}
+{"timestamp":"2025-01-15T07:01:33","level":"ERROR","message":"Access denied","ip":"192.168.0.14","method":"GET","path":"/search?q=test","status":400}
+{"timestamp":"2025-01-15T11:30:10","level":"INFO","message":"OK","ip":"192.168.0.13","method":"DELETE","path":"/logout","status":503}
+{"timestamp":"2025-01-15T01:46:53","level":"INFO","message":"OK","ip":"192.168.0.18","method":"DELETE","path":"/api/users","status":500}
+{"timestamp":"2025-01-15T19:24:37","level":"WARN","message":"Timeout","ip":"192.168.0.2","method":"GET","path":"/cart","status":500}
+{"timestamp":"2025-01-15T20:08:51","level":"ERROR","message":"OK","ip":"192.168.0.1","method":"DELETE","path":"/cart","status":400}
+{"timestamp":"2025-01-15T02:46:20","level":"WARN","message":"Timeout","ip":"192.168.0.9","method":"DELETE","path":"/dashboard","status":401}
+{"timestamp":"2025-01-15T01:05:09","level":"INFO","message":"Failed","ip":"192.168.0.19","method":"POST","path":"/api/users","status":200}
+{"timestamp":"2025-01-15T00:04:59","level":"WARN","message":"Timeout","ip":"192.168.0.0","method":"PUT","path":"/dashboard","status":500}
+{"timestamp":"2025-01-15T00:13:09","level":"ERROR","message":"Update","ip":"192.168.0.2","method":"GET","path":"/api/search","status":401}
+{"timestamp":"2025-01-15T12:37:53","level":"WARN","message":"Deleted","ip":"192.168.0.0","method":"GET","path":"/register","status":404}
+{"timestamp":"2025-01-15T16:19:13","level":"ERROR","message":"Update","ip":"192.168.0.5","method":"POST","path":"/profile","status":502}
+{"timestamp":"2025-01-15T00:15:15","level":"ERROR","message":"Processing","ip":"192.168.0.15","method":"DELETE","path":"/api/search","status":302}
+{"timestamp":"2025-01-15T20:21:22","level":"WARN","message":"Update","ip":"192.168.0.10","method":"POST","path":"/search?q=test","status":403}
+{"timestamp":"2025-01-15T02:03:33","level":"INFO","message":"OK","ip":"192.168.0.19","method":"POST","path":"/logout","status":200}
+{"timestamp":"2025-01-15T09:23:36","level":"ERROR","message":"Update","ip":"192.168.0.19","method":"POST","path":"/register","status":200}
+{"timestamp":"2025-01-15T05:30:40","level":"WARN","message":"Processing","ip":"192.168.0.11","method":"POST","path":"/register","status":301}
+{"timestamp":"2025-01-15T01:17:28","level":"INFO","message":"Deleted","ip":"192.168.0.0","method":"GET","path":"/dashboard","status":200}
+{"timestamp":"2025-01-15T05:46:57","level":"INFO","message":"Not found","ip":"192.168.0.16","method":"GET","path":"/api/users","status":500}
+{"timestamp":"2025-01-15T09:01:44","level":"INFO","message":"Not found","ip":"192.168.0.14","method":"GET","path":"/api/users","status":403}
+{"timestamp":"2025-01-15T15:40:58","level":"INFO","message":"Not found","ip":"192.168.0.14","method":"DELETE","path":"/api/users","status":401}
+{"timestamp":"2025-01-15T01:13:08","level":"WARN","message":"Not found","ip":"192.168.0.5","method":"DELETE","path":"/register","status":403}
+{"timestamp":"2025-01-15T15:30:33","level":"ERROR","message":"Update","ip":"192.168.0.2","method":"GET","path":"/admin","status":502}
+{"timestamp":"2025-01-15T12:47:34","level":"INFO","message":"Timeout","ip":"192.168.0.12","method":"PUT","path":"/register","status":500}
+{"timestamp":"2025-01-15T13:52:27","level":"ERROR","message":"OK","ip":"192.168.0.9","method":"PUT","path":"/api/users","status":301}
+{"timestamp":"2025-01-15T02:06:59","level":"ERROR","message":"Deleted","ip":"192.168.0.19","method":"GET","path":"/logout","status":302}
+{"timestamp":"2025-01-15T13:12:17","level":"WARN","message":"Not found","ip":"192.168.0.4","method":"DELETE","path":"/dashboard","status":503}
+{"timestamp":"2025-01-15T22:44:41","level":"WARN","message":"Deleted","ip":"192.168.0.3","method":"GET","path":"/register","status":500}
+{"timestamp":"2025-01-15T03:57:42","level":"ERROR","message":"Timeout","ip":"192.168.0.0","method":"DELETE","path":"/logout","status":200}
+{"timestamp":"2025-01-15T19:14:18","level":"WARN","message":"Access denied","ip":"192.168.0.19","method":"DELETE","path":"/product/123","status":502}
+{"timestamp":"2025-01-15T03:22:51","level":"INFO","message":"Failed","ip":"192.168.0.19","method":"POST","path":"/cart","status":503}
+{"timestamp":"2025-01-15T19:29:18","level":"ERROR","message":"Failed","ip":"192.168.0.8","method":"DELETE","path":"/search?q=test","status":503}
+{"timestamp":"2025-01-15T10:43:33","level":"WARN","message":"Timeout","ip":"192.168.0.3","method":"POST","path":"/search?q=test","status":503}
+{"timestamp":"2025-01-15T02:36:28","level":"WARN","message":"Timeout","ip":"192.168.0.19","method":"PUT","path":"/profile","status":200}
+{"timestamp":"2025-01-15T04:49:26","level":"ERROR","message":"Access denied","ip":"192.168.0.9","method":"GET","path":"/login","status":302}
+{"timestamp":"2025-01-15T03:54:39","level":"WARN","message":"Processing","ip":"192.168.0.15","method":"GET","path":"/profile","status":500}
+{"timestamp":"2025-01-15T04:39:37","level":"INFO","message":"Access denied","ip":"192.168.0.2","method":"DELETE","path":"/product/123","status":200}
+{"timestamp":"2025-01-15T04:47:02","level":"ERROR","message":"Timeout","ip":"192.168.0.16","method":"DELETE","path":"/dashboard","status":500}
+{"timestamp":"2025-01-15T13:50:09","level":"ERROR","message":"Not found","ip":"192.168.0.4","method":"POST","path":"/api/search","status":401}
+{"timestamp":"2025-01-15T10:30:40","level":"ERROR","message":"Deleted","ip":"192.168.0.12","method":"POST","path":"/profile","status":401}
+{"timestamp":"2025-01-15T17:32:52","level":"INFO","message":"Timeout","ip":"192.168.0.6","method":"POST","path":"/logout","status":302}
+{"timestamp":"2025-01-15T00:59:58","level":"INFO","message":"OK","ip":"192.168.0.17","method":"POST","path":"/cart","status":200}
+{"timestamp":"2025-01-15T02:22:41","level":"INFO","message":"Update","ip":"192.168.0.15","method":"DELETE","path":"/product/123","status":400}
+{"timestamp":"2025-01-15T23:59:09","level":"ERROR","message":"Processing","ip":"192.168.0.14","method":"PUT","path":"/search?q=test","status":500}
+{"timestamp":"2025-01-15T02:47:08","level":"WARN","message":"Timeout","ip":"192.168.0.3","method":"PUT","path":"/admin","status":200}
+{"timestamp":"2025-01-15T08:50:20","level":"INFO","message":"Not found","ip":"192.168.0.19","method":"DELETE","path":"/products","status":500}
+{"timestamp":"2025-01-15T05:27:11","level":"INFO","message":"Not found","ip":"192.168.0.8","method":"POST","path":"/register","status":404}
+{"timestamp":"2025-01-15T01:53:33","level":"INFO","message":"Timeout","ip":"192.168.0.1","method":"PUT","path":"/api/search","status":200}
+{"timestamp":"2025-01-15T22:33:19","level":"WARN","message":"OK","ip":"192.168.0.9","method":"GET","path":"/admin","status":503}
+{"timestamp":"2025-01-15T22:37:41","level":"ERROR","message":"Timeout","ip":"192.168.0.6","method":"PUT","path":"/checkout","status":400}
+{"timestamp":"2025-01-15T06:51:33","level":"ERROR","message":"Processing","ip":"192.168.0.2","method":"GET","path":"/logout","status":500}
+{"timestamp":"2025-01-15T16:12:06","level":"ERROR","message":"Deleted","ip":"192.168.0.5","method":"POST","path":"/logout","status":400}
+{"timestamp":"2025-01-15T05:10:40","level":"ERROR","message":"Processing","ip":"192.168.0.1","method":"PUT","path":"/api/search","status":500}
+{"timestamp":"2025-01-15T15:17:47","level":"INFO","message":"Timeout","ip":"192.168.0.14","method":"PUT","path":"/register","status":404}
+{"timestamp":"2025-01-15T08:45:57","level":"ERROR","message":"Access denied","ip":"192.168.0.10","method":"GET","path":"/api/search","status":400}
+{"timestamp":"2025-01-15T12:52:40","level":"ERROR","message":"Failed","ip":"192.168.0.18","method":"PUT","path":"/api/users","status":301}
+{"timestamp":"2025-01-15T13:05:55","level":"INFO","message":"Failed","ip":"192.168.0.2","method":"DELETE","path":"/products","status":403}
+{"timestamp":"2025-01-15T20:52:03","level":"ERROR","message":"Deleted","ip":"192.168.0.2","method":"POST","path":"/products","status":500}
+{"timestamp":"2025-01-15T14:32:43","level":"WARN","message":"Not found","ip":"192.168.0.12","method":"DELETE","path":"/search?q=test","status":400}
+{"timestamp":"2025-01-15T13:10:59","level":"INFO","message":"Timeout","ip":"192.168.0.13","method":"POST","path":"/admin","status":400}
+{"timestamp":"2025-01-15T23:04:51","level":"WARN","message":"Processing","ip":"192.168.0.13","method":"PUT","path":"/profile","status":502}
+{"timestamp":"2025-01-15T02:28:08","level":"ERROR","message":"Processing","ip":"192.168.0.6","method":"PUT","path":"/dashboard","status":401}
+{"timestamp":"2025-01-15T15:46:42","level":"WARN","message":"OK","ip":"192.168.0.10","method":"PUT","path":"/dashboard","status":403}
+{"timestamp":"2025-01-15T20:56:01","level":"INFO","message":"Timeout","ip":"192.168.0.5","method":"PUT","path":"/api/users","status":400}
+{"timestamp":"2025-01-15T18:54:40","level":"ERROR","message":"Not found","ip":"192.168.0.3","method":"PUT","path":"/login","status":302}
+{"timestamp":"2025-01-15T23:19:23","level":"INFO","message":"Access denied","ip":"192.168.0.17","method":"PUT","path":"/admin","status":403}
+{"timestamp":"2025-01-15T12:33:47","level":"WARN","message":"OK","ip":"192.168.0.4","method":"DELETE","path":"/register","status":400}
+{"timestamp":"2025-01-15T16:49:35","level":"WARN","message":"Processing","ip":"192.168.0.18","method":"POST","path":"/profile","status":401}
+{"timestamp":"2025-01-15T20:06:36","level":"ERROR","message":"OK","ip":"192.168.0.7","method":"DELETE","path":"/profile","status":500}
+{"timestamp":"2025-01-15T17:30:10","level":"ERROR","message":"Failed","ip":"192.168.0.3","method":"PUT","path":"/register","status":200}
+{"timestamp":"2025-01-15T17:20:12","level":"INFO","message":"Deleted","ip":"192.168.0.4","method":"PUT","path":"/search?q=test","status":401}
+{"timestamp":"2025-01-15T22:01:03","level":"WARN","message":"Update","ip":"192.168.0.12","method":"POST","path":"/api/search","status":302}
+{"timestamp":"2025-01-15T03:22:25","level":"ERROR","message":"Processing","ip":"192.168.0.13","method":"DELETE","path":"/register","status":404}
+{"timestamp":"2025-01-15T03:25:55","level":"WARN","message":"Access denied","ip":"192.168.0.16","method":"PUT","path":"/cart","status":404}
+{"timestamp":"2025-01-15T23:46:34","level":"INFO","message":"OK","ip":"192.168.0.13","method":"POST","path":"/admin","status":503}
+{"timestamp":"2025-01-15T21:31:41","level":"WARN","message":"Update","ip":"192.168.0.1","method":"POST","path":"/api/search","status":302}
+{"timestamp":"2025-01-15T23:45:06","level":"ERROR","message":"Processing","ip":"192.168.0.3","method":"POST","path":"/logout","status":403}
+{"timestamp":"2025-01-15T20:42:22","level":"WARN","message":"Update","ip":"192.168.0.1","method":"PUT","path":"/admin","status":400}
+{"timestamp":"2025-01-15T23:54:53","level":"INFO","message":"Processing","ip":"192.168.0.2","method":"POST","path":"/api/users","status":404}
+{"timestamp":"2025-01-15T22:16:17","level":"INFO","message":"Failed","ip":"192.168.0.11","method":"POST","path":"/checkout","status":200}
+{"timestamp":"2025-01-15T06:58:04","level":"WARN","message":"Timeout","ip":"192.168.0.1","method":"DELETE","path":"/product/123","status":503}
+{"timestamp":"2025-01-15T11:58:15","level":"ERROR","message":"OK","ip":"192.168.0.3","method":"POST","path":"/checkout","status":502}
+{"timestamp":"2025-01-15T17:07:43","level":"WARN","message":"Update","ip":"192.168.0.8","method":"PUT","path":"/search?q=test","status":502}
+{"timestamp":"2025-01-15T23:55:46","level":"ERROR","message":"Not found","ip":"192.168.0.14","method":"GET","path":"/api/users","status":403}
+{"timestamp":"2025-01-15T12:10:03","level":"WARN","message":"Failed","ip":"192.168.0.19","method":"PUT","path":"/admin","status":200}
+{"timestamp":"2025-01-15T07:46:48","level":"WARN","message":"Timeout","ip":"192.168.0.7","method":"DELETE","path":"/api/users","status":301}
+{"timestamp":"2025-01-15T23:39:21","level":"WARN","message":"Not found","ip":"192.168.0.15","method":"GET","path":"/api/search","status":403}
+{"timestamp":"2025-01-15T07:29:48","level":"WARN","message":"Not found","ip":"192.168.0.12","method":"DELETE","path":"/profile","status":301}
+{"timestamp":"2025-01-15T14:27:40","level":"WARN","message":"Update","ip":"192.168.0.7","method":"GET","path":"/search?q=test","status":502}
+{"timestamp":"2025-01-15T03:05:26","level":"WARN","message":"Not found","ip":"192.168.0.16","method":"POST","path":"/products","status":502}
+{"timestamp":"2025-01-15T18:03:13","level":"ERROR","message":"Deleted","ip":"192.168.0.6","method":"PUT","path":"/cart","status":302}
+{"timestamp":"2025-01-15T09:41:21","level":"WARN","message":"Processing","ip":"192.168.0.18","method":"POST","path":"/profile","status":403}
+{"timestamp":"2025-01-15T08:18:47","level":"INFO","message":"Deleted","ip":"192.168.0.7","method":"POST","path":"/logout","status":404}
+{"timestamp":"2025-01-15T17:46:28","level":"INFO","message":"Failed","ip":"192.168.0.8","method":"DELETE","path":"/checkout","status":500}
+{"timestamp":"2025-01-15T09:46:50","level":"ERROR","message":"Deleted","ip":"192.168.0.10","method":"GET","path":"/logout","status":401}
+{"timestamp":"2025-01-15T00:05:56","level":"INFO","message":"Not found","ip":"192.168.0.18","method":"DELETE","path":"/logout","status":200}
+{"timestamp":"2025-01-15T22:03:08","level":"WARN","message":"Access denied","ip":"192.168.0.18","method":"POST","path":"/products","status":302}
+{"timestamp":"2025-01-15T10:22:23","level":"INFO","message":"Update","ip":"192.168.0.11","method":"DELETE","path":"/logout","status":301}
+{"timestamp":"2025-01-15T00:59:28","level":"ERROR","message":"Not found","ip":"192.168.0.15","method":"PUT","path":"/dashboard","status":404}
+{"timestamp":"2025-01-15T05:05:11","level":"WARN","message":"Deleted","ip":"192.168.0.7","method":"DELETE","path":"/products","status":301}
+{"timestamp":"2025-01-15T04:21:39","level":"INFO","message":"Update","ip":"192.168.0.18","method":"POST","path":"/login","status":301}
+{"timestamp":"2025-01-15T19:32:30","level":"INFO","message":"Processing","ip":"192.168.0.7","method":"DELETE","path":"/products","status":400}
+{"timestamp":"2025-01-15T17:26:46","level":"INFO","message":"Processing","ip":"192.168.0.5","method":"PUT","path":"/api/users","status":200}
+{"timestamp":"2025-01-15T13:34:05","level":"ERROR","message":"Timeout","ip":"192.168.0.7","method":"POST","path":"/admin","status":404}
+{"timestamp":"2025-01-15T09:38:58","level":"WARN","message":"Failed","ip":"192.168.0.7","method":"DELETE","path":"/api/search","status":502}
+{"timestamp":"2025-01-15T02:34:10","level":"WARN","message":"Update","ip":"192.168.0.13","method":"PUT","path":"/logout","status":502}
+{"timestamp":"2025-01-15T05:35:03","level":"WARN","message":"Access denied","ip":"192.168.0.7","method":"POST","path":"/profile","status":404}
+{"timestamp":"2025-01-15T03:35:02","level":"INFO","message":"OK","ip":"192.168.0.16","method":"POST","path":"/product/123","status":403}
+{"timestamp":"2025-01-15T22:32:24","level":"ERROR","message":"Not found","ip":"192.168.0.11","method":"PUT","path":"/cart","status":403}
+{"timestamp":"2025-01-15T16:03:17","level":"ERROR","message":"Failed","ip":"192.168.0.8","method":"PUT","path":"/cart","status":404}
+{"timestamp":"2025-01-15T08:47:26","level":"WARN","message":"Update","ip":"192.168.0.3","method":"POST","path":"/register","status":301}
+{"timestamp":"2025-01-15T07:06:40","level":"WARN","message":"Access denied","ip":"192.168.0.17","method":"PUT","path":"/search?q=test","status":403}
+{"timestamp":"2025-01-15T13:33:47","level":"INFO","message":"Failed","ip":"192.168.0.15","method":"POST","path":"/api/users","status":503}
+{"timestamp":"2025-01-15T12:11:32","level":"WARN","message":"Deleted","ip":"192.168.0.7","method":"GET","path":"/cart","status":200}
+{"timestamp":"2025-01-15T16:10:54","level":"INFO","message":"OK","ip":"192.168.0.14","method":"GET","path":"/products","status":301}
+{"timestamp":"2025-01-15T02:58:24","level":"INFO","message":"Deleted","ip":"192.168.0.19","method":"DELETE","path":"/register","status":500}
+{"timestamp":"2025-01-15T03:55:38","level":"INFO","message":"Failed","ip":"192.168.0.2","method":"POST","path":"/cart","status":403}
+{"timestamp":"2025-01-15T06:52:59","level":"WARN","message":"Deleted","ip":"192.168.0.2","method":"PUT","path":"/admin","status":200}
+{"timestamp":"2025-01-15T06:11:38","level":"WARN","message":"Update","ip":"192.168.0.7","method":"GET","path":"/logout","status":302}
+{"timestamp":"2025-01-15T21:47:37","level":"ERROR","message":"Not found","ip":"192.168.0.14","method":"GET","path":"/logout","status":500}
+{"timestamp":"2025-01-15T06:11:16","level":"ERROR","message":"Not found","ip":"192.168.0.18","method":"POST","path":"/product/123","status":403}
+{"timestamp":"2025-01-15T09:09:56","level":"ERROR","message":"Not found","ip":"192.168.0.16","method":"POST","path":"/checkout","status":502}
+{"timestamp":"2025-01-15T04:23:29","level":"INFO","message":"Failed","ip":"192.168.0.16","method":"DELETE","path":"/product/123","status":502}
+{"timestamp":"2025-01-15T08:46:09","level":"WARN","message":"Processing","ip":"192.168.0.12","method":"POST","path":"/admin","status":401}
+{"timestamp":"2025-01-15T18:50:38","level":"WARN","message":"Update","ip":"192.168.0.13","method":"DELETE","path":"/dashboard","status":400}
+{"timestamp":"2025-01-15T16:20:53","level":"INFO","message":"OK","ip":"192.168.0.7","method":"POST","path":"/dashboard","status":401}
+{"timestamp":"2025-01-15T00:53:26","level":"INFO","message":"Not found","ip":"192.168.0.8","method":"DELETE","path":"/api/users","status":200}
+{"timestamp":"2025-01-15T07:42:54","level":"WARN","message":"Access denied","ip":"192.168.0.17","method":"POST","path":"/api/search","status":500}
+{"timestamp":"2025-01-15T12:40:37","level":"WARN","message":"Deleted","ip":"192.168.0.3","method":"POST","path":"/profile","status":502}
+{"timestamp":"2025-01-15T05:47:30","level":"ERROR","message":"Deleted","ip":"192.168.0.1","method":"PUT","path":"/checkout","status":302}
+{"timestamp":"2025-01-15T12:57:30","level":"INFO","message":"Processing","ip":"192.168.0.5","method":"GET","path":"/profile","status":503}
+{"timestamp":"2025-01-15T10:33:20","level":"INFO","message":"Timeout","ip":"192.168.0.5","method":"GET","path":"/logout","status":200}
+{"timestamp":"2025-01-15T11:30:51","level":"ERROR","message":"Deleted","ip":"192.168.0.11","method":"DELETE","path":"/api/search","status":500}
+{"timestamp":"2025-01-15T02:10:49","level":"ERROR","message":"Deleted","ip":"192.168.0.8","method":"POST","path":"/cart","status":200}
+{"timestamp":"2025-01-15T12:25:44","level":"INFO","message":"Failed","ip":"192.168.0.0","method":"POST","path":"/login","status":400}
+{"timestamp":"2025-01-15T16:07:34","level":"WARN","message":"Timeout","ip":"192.168.0.0","method":"GET","path":"/api/users","status":301}
+{"timestamp":"2025-01-15T07:10:47","level":"WARN","message":"Update","ip":"192.168.0.5","method":"GET","path":"/profile","status":503}
+{"timestamp":"2025-01-15T19:16:06","level":"INFO","message":"Access denied","ip":"192.168.0.0","method":"GET","path":"/login","status":301}
+{"timestamp":"2025-01-15T12:09:00","level":"ERROR","message":"Timeout","ip":"192.168.0.11","method":"POST","path":"/api/users","status":400}
+{"timestamp":"2025-01-15T16:59:55","level":"INFO","message":"Update","ip":"192.168.0.18","method":"PUT","path":"/cart","status":302}
+{"timestamp":"2025-01-15T22:27:23","level":"ERROR","message":"Processing","ip":"192.168.0.0","method":"DELETE","path":"/product/123","status":301}
+{"timestamp":"2025-01-15T20:49:38","level":"INFO","message":"Deleted","ip":"192.168.0.18","method":"PUT","path":"/product/123","status":200}
+{"timestamp":"2025-01-15T03:06:53","level":"ERROR","message":"OK","ip":"192.168.0.1","method":"PUT","path":"/profile","status":502}
+{"timestamp":"2025-01-15T10:29:22","level":"INFO","message":"Failed","ip":"192.168.0.10","method":"GET","path":"/register","status":403}
+{"timestamp":"2025-01-15T06:52:31","level":"ERROR","message":"Failed","ip":"192.168.0.9","method":"PUT","path":"/checkout","status":403}
+{"timestamp":"2025-01-15T15:02:35","level":"WARN","message":"Not found","ip":"192.168.0.7","method":"POST","path":"/cart","status":403}
+{"timestamp":"2025-01-15T06:57:32","level":"WARN","message":"OK","ip":"192.168.0.16","method":"PUT","path":"/logout","status":403}
+{"timestamp":"2025-01-15T05:25:41","level":"ERROR","message":"OK","ip":"192.168.0.9","method":"POST","path":"/api/users","status":302}
+{"timestamp":"2025-01-15T19:37:43","level":"WARN","message":"Timeout","ip":"192.168.0.12","method":"DELETE","path":"/profile","status":400}
+{"timestamp":"2025-01-15T03:14:56","level":"ERROR","message":"Processing","ip":"192.168.0.7","method":"DELETE","path":"/product/123","status":502}
+{"timestamp":"2025-01-15T06:05:53","level":"ERROR","message":"Not found","ip":"192.168.0.13","method":"GET","path":"/logout","status":500}
+{"timestamp":"2025-01-15T20:35:00","level":"WARN","message":"Timeout","ip":"192.168.0.8","method":"PUT","path":"/product/123","status":503}
+{"timestamp":"2025-01-15T18:26:06","level":"INFO","message":"Processing","ip":"192.168.0.6","method":"GET","path":"/profile","status":302}
+{"timestamp":"2025-01-15T19:16:46","level":"INFO","message":"Timeout","ip":"192.168.0.15","method":"POST","path":"/checkout","status":500}
+{"timestamp":"2025-01-15T12:56:17","level":"WARN","message":"Deleted","ip":"192.168.0.5","method":"PUT","path":"/checkout","status":500}
+{"timestamp":"2025-01-15T06:25:33","level":"INFO","message":"OK","ip":"192.168.0.13","method":"DELETE","path":"/api/search","status":400}
+{"timestamp":"2025-01-15T12:26:34","level":"WARN","message":"Processing","ip":"192.168.0.18","method":"PUT","path":"/api/users","status":503}
+{"timestamp":"2025-01-15T03:50:04","level":"WARN","message":"Processing","ip":"192.168.0.10","method":"PUT","path":"/api/users","status":503}
+{"timestamp":"2025-01-15T22:17:29","level":"WARN","message":"Not found","ip":"192.168.0.2","method":"POST","path":"/api/users","status":403}
+{"timestamp":"2025-01-15T01:53:58","level":"ERROR","message":"Failed","ip":"192.168.0.6","method":"POST","path":"/api/search","status":401}
+{"timestamp":"2025-01-15T02:29:28","level":"WARN","message":"OK","ip":"192.168.0.19","method":"PUT","path":"/login","status":401}
+{"timestamp":"2025-01-15T00:13:23","level":"WARN","message":"Update","ip":"192.168.0.2","method":"POST","path":"/api/users","status":200}
+{"timestamp":"2025-01-15T10:03:54","level":"WARN","message":"Failed","ip":"192.168.0.10","method":"GET","path":"/api/search","status":200}
+{"timestamp":"2025-01-15T06:23:03","level":"INFO","message":"Processing","ip":"192.168.0.17","method":"PUT","path":"/api/users","status":401}
+{"timestamp":"2025-01-15T02:08:13","level":"WARN","message":"OK","ip":"192.168.0.19","method":"DELETE","path":"/dashboard","status":302}
+{"timestamp":"2025-01-15T01:24:11","level":"WARN","message":"Not found","ip":"192.168.0.9","method":"DELETE","path":"/register","status":403}
+{"timestamp":"2025-01-15T00:31:28","level":"ERROR","message":"Update","ip":"192.168.0.11","method":"GET","path":"/dashboard","status":500}
+{"timestamp":"2025-01-15T18:42:41","level":"ERROR","message":"Update","ip":"192.168.0.7","method":"POST","path":"/api/search","status":200}
