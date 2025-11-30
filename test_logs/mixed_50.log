@@ -1,0 +1,50 @@
+192.168.0.1 - - [15/Jan/2025:06:55:49 +0200] "GET /login HTTP/1.1" 404 784
+{"timestamp": "2025-01-15T10:26:07", "level": "WARN", "message": "Test message", "ip": "192.168.0.2", "method": "PUT", "path": "/dashboard", "status": 302}
+192.168.0.6 - - [15/Jan/2025:08:49:36 +0200] "POST /products HTTP/1.1" 503 493
+Jan 15 23:39:59 server sshd[1001]: Failed login from 192.168.0.6
+192.168.0.4 - - [15/Jan/2025:14:06:04] "POST /login HTTP/1.1" 401 666 "-" "Mozilla"
+{"timestamp": "2025-01-15T21:50:14", "level": "INFO", "message": "Test message", "ip": "192.168.0.10", "method": "POST", "path": "/admin", "status": 500}
+{"timestamp": "2025-01-15T09:48:24", "level": "ERROR", "message": "Test message", "ip": "192.168.0.11", "method": "GET", "path": "/admin", "status": 301}
+Jan 15 09:14:23 server sshd[1001]: Failed login from 192.168.0.9
+192.168.0.13 - - [15/Jan/2025:12:27:12 +0200] "DELETE /logout HTTP/1.1" 302 241
+{"timestamp": "2025-01-15T13:58:08", "level": "ERROR", "message": "Test message", "ip": "192.168.0.12", "method": "DELETE", "path": "/admin", "status": 302}
+192.168.0.14 - - [15/Jan/2025:08:36:24] "PUT /admin HTTP/1.1" 400 956 "-" "Mozilla"
+192.168.0.11 - - [15/Jan/2025:15:20:52] "DELETE /dashboard HTTP/1.1" 200 918 "-" "Mozilla"
+[2025-01-15 22:29:32] IP=192.168.0.20 LEVEL=INFO MSG="Something happened" PATH=/products STATUS=400
+{"timestamp": "2025-01-15T10:35:36", "level": "INFO", "message": "Test message", "ip": "192.168.0.1", "method": "GET", "path": "/dashboard", "status": 400}
+192.168.0.8 - - [15/Jan/2025:08:09:37] "PUT /register HTTP/1.1" 301 1382 "-" "Mozilla"
+192.168.0.15 - - [15/Jan/2025:15:06:38] "PUT /products HTTP/1.1" 403 1311 "-" "Mozilla"
+192.168.0.15 - - [15/Jan/2025:12:18:03] "DELETE /logout HTTP/1.1" 503 431 "-" "Mozilla"
+Jan 15 10:44:41 server sshd[1001]: Failed login from 192.168.0.8
+192.168.0.10 - - [15/Jan/2025:22:45:59] "DELETE /dashboard HTTP/1.1" 500 946 "-" "Mozilla"
+Jan 15 13:23:01 server sshd[1001]: Failed login from 192.168.0.5
+[2025-01-15 01:18:04] IP=192.168.0.18 LEVEL=WARN MSG="Something happened" PATH=/logout STATUS=500
+192.168.0.3 - - [15/Jan/2025:23:56:50 +0200] "GET /logout HTTP/1.1" 500 692
+[2025-01-15 19:01:13] IP=192.168.0.17 LEVEL=INFO MSG="Something happened" PATH=/admin STATUS=200
+Jan 15 01:38:32 server sshd[1001]: Failed login from 192.168.0.1
+[2025-01-15 09:58:04] IP=192.168.0.11 LEVEL=ERROR MSG="Something happened" PATH=/api/search STATUS=503
+{"timestamp": "2025-01-15T15:19:55", "level": "WARN", "message": "Test message", "ip": "192.168.0.4", "method": "PUT", "path": "/admin", "status": 500}
+Jan 15 06:53:44 server sshd[1001]: Failed login from 192.168.0.2
+[2025-01-15 06:21:14] IP=192.168.0.9 LEVEL=INFO MSG="Something happened" PATH=/dashboard STATUS=401
+[2025-01-15 18:02:02] IP=192.168.0.15 LEVEL=INFO MSG="Something happened" PATH=/dashboard STATUS=400
+Jan 15 09:32:50 server sshd[1001]: Failed login from 192.168.0.10
+Jan 15 15:36:00 server sshd[1001]: Failed login from 192.168.0.3
+Jan 15 02:10:46 server sshd[1001]: Failed login from 192.168.0.18
+Jan 15 14:07:09 server sshd[1001]: Failed login from 192.168.0.7
+192.168.0.11 - - [15/Jan/2025:03:28:42] "PUT /register HTTP/1.1" 302 736 "-" "Mozilla"
+{"timestamp": "2025-01-15T13:54:28", "level": "ERROR", "message": "Test message", "ip": "192.168.0.19", "method": "POST", "path": "/dashboard", "status": 200}
+{"timestamp": "2025-01-15T23:18:33", "level": "ERROR", "message": "Test message", "ip": "192.168.0.5", "method": "GET", "path": "/dashboard", "status": 301}
+192.168.0.2 - - [15/Jan/2025:15:36:24 +0200] "PUT /admin HTTP/1.1" 500 126
+[2025-01-15 10:58:37] IP=192.168.0.8 LEVEL=ERROR MSG="Something happened" PATH=/logout STATUS=503
+Jan 15 20:00:52 server sshd[1001]: Failed login from 192.168.0.10
+[2025-01-15 22:53:24] IP=192.168.0.11 LEVEL=WARN MSG="Something happened" PATH=/api/search STATUS=200
+192.168.0.12 - - [15/Jan/2025:10:48:07 +0200] "DELETE /products HTTP/1.1" 302 877
+Jan 15 18:46:37 server sshd[1001]: Failed login from 192.168.0.4
+192.168.0.3 - - [15/Jan/2025:03:40:25 +0200] "DELETE /logout HTTP/1.1" 400 847
+192.168.0.1 - - [15/Jan/2025:00:50:01] "GET /logout HTTP/1.1" 401 1087 "-" "Mozilla"
+[2025-01-15 09:43:35] IP=192.168.0.18 LEVEL=ERROR MSG="Something happened" PATH=/dashboard STATUS=200
+Jan 15 10:04:26 server sshd[1001]: Failed login from 192.168.0.8
+[2025-01-15 22:50:32] IP=192.168.0.8 LEVEL=INFO MSG="Something happened" PATH=/api/search STATUS=200
+[2025-01-15 01:37:14] IP=192.168.0.14 LEVEL=ERROR MSG="Something happened" PATH=/dashboard STATUS=301
+{"timestamp": "2025-01-15T03:09:12", "level": "INFO", "message": "Test message", "ip": "192.168.0.13", "method": "PUT", "path": "/login", "status": 301}
+Jan 15 15:38:08 server sshd[1001]: Failed login from 192.168.0.7
