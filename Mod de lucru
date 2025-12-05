@@ -113,41 +113,12 @@ MENIURILE ESTENTIALE
   --errors
   --filter TEXT
   --after data
-
+  --befor data
+  --filter interval
+  filter dupa text
 Statistici:
   --stats
-   Analiză Log-uri - apache.log
-═══════════════════════════════════════════════
-Total linii procesate: 300
-Perioadă: 2025-01-14 02:20 - 2025-01-15 22:33
-
-Distribuție pe niveluri:
-  INFO   : 148 (49.3%)
-  WARN   : 82 (27.3%)
-  ERROR  : 58 (19.3%)
-  FATAL  : 12 (4.0%)
-
-Distribuție pe coduri HTTP:
-  200    : 174
-  404    : 41
-  500    : 32
-  302    : 23
-  alte   : 30
-
-Metode HTTP:
-  GET    : 242
-  POST   : 38
-  PUT    : 14
-  DELETE : 6
-
-Top 5 IP-uri:
-  192.168.0.17   : 28 requests
-  192.168.0.22   : 25
-  10.0.0.8       : 18
-  203.0.113.5    : 16
-  172.16.0.2     : 15
-═══════════════════════════════════════════════
-
+ 
 IP Analysis:
   --top_ips N
   --suspicious
@@ -168,3 +139,18 @@ Dashboard:
  AI prediction
 
  --ai          
+
+
+ Meniul principal
+            LOG ANALYZER — Meniu principal
+1. Încărcare fișier log
+2. Filtrare log-uri
+3. Statistici generale
+4. Top-uri (IP, erori, rute)
+5. Detectare atacuri / IP-uri suspecte
+6. Spike detection (creșteri bruște)
+7. Generare rapoarte (HTML / TXT / JSON)
+8. Monitorizare în timp real (--watch)
+9. Setări
+0. Ieșire
+Alege opțiunea:
