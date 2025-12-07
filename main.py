@@ -4,15 +4,15 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
 # Statistici generale
-from meniu.statistici import status as compute_stats    
+from meniu.statistici import status as status    
 
 # Top IP-uri
-from meniu.top_ip import top_ip   
+from meniu.top_ip import top_ip,top_dangerous_ip  
 
 # Profilare IP-uri
 from grouping.profile_by_ip import profile_by_ip         
 
-# Spike-uri bazate pe profile_by_ip (NOU!)
+# Spike-uri bazate pe profile_by_ip 
 from meniu.spike_abuse import detect_all_spikes
 
 # Suspicious patterns
@@ -25,7 +25,7 @@ from meniu.paterns import (
 
 def main():
 
-    logfile = "test_logs/apache_300.log"
+    logfile = "test_logs/nginx.log"
 
     # 1) Încarcă logul
     entries = load_file(logfile)
@@ -35,17 +35,18 @@ def main():
         return
 
     print(" Log încarcat.")
-
+    
+    # generam informatiile generale pentru raport
     # 2) Statistici generale
-    stats = compute_stats(entries)
+    stats = status(entries)
 
     # 3) Top IP-uri
     top_ips_list = top_ip(entries)
-
+    top_dangerous_ip(entries)
     # 4) Profilare IP-uri
     profiles = profile_by_ip(entries)
 
-    # 5) SPIKE-uri (NOU: TOTUL vine din profile_by_ip)
+    # 5) SPIKE-uri ( TOTUL vine din profile_by_ip)
     spikes = detect_all_spikes(entries)
 
     # 6) Activitate suspectă
@@ -56,6 +57,7 @@ def main():
     suspicious = brute + scans + sens
 
     # 7) Generare raport HTML
+    #raportul html va include toate informatiile colectate mai sus
     generate_html_report(
         filename=logfile,
         total_lines=len(entries),
@@ -63,7 +65,8 @@ def main():
         top_ips=top_ips_list,                
         ip_profiles=profiles,                
         spikes=spikes,                        # ← NOUL sistem de spike-uri
-        suspicious_events=suspicious,        
+        suspicious_events=suspicious,      
+      
         output_path="raport_complet.html"
     )
 
