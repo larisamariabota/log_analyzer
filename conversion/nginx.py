@@ -46,37 +46,35 @@ parse_regex_nginx_access=re.compile(
 
 
 def parse_nginx_access(line):
-     m=parse_regex_nginx_access.search(line)
-     if m is None:
-         return None
-     raw_time=m.group("time") 
-     raw_time=raw_time.split(" ")[0]
-     try:
+    m = parse_regex_nginx_access.search(line)
+    if m is None:
+        return None
+    
+    raw_time = m.group("time")
+    try:
         timestamp = datetime.strptime(raw_time, "%d/%b/%Y:%H:%M:%S")
-     except:
+    except:
         timestamp = None
-     
-     status = int(m.group("status"))
 
-     if status >= 500:
+    status = int(m.group("status"))
+
+    if status >= 500:
         level = "ERROR"
-     elif status >= 400:
+    elif status >= 400:
         level = "WARN"
-     else:
+    else:
         level = "INFO"
 
-     return{
+    return {
         "timestamp": timestamp,
         "level": level,
         "message": f'{m.group("method")} {m.group("path")}',
-
         "ip": m.group("ip"),
         "method": m.group("method"),
         "path": m.group("path"),
         "status": status,
         "size": int(m.group("size")),
         "version": m.group("version"),
-
         "user_agent": None,
         "process": None,
         "source": "nginx"

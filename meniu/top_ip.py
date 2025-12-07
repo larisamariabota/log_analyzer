@@ -13,7 +13,7 @@ def top_ip(entries):
 
     total_logs = len(entries)
 
-    print("🌐 Top 10 IP-uri după numărul de cereri\n" + "="*45)
+    print("Top 10 IP-uri după numărul de cereri\n" + "="*45)
 
     for i, (ip, count) in enumerate(top_10, start=1):
         pct = (count / total_logs * 100) if total_logs else 0
@@ -83,7 +83,7 @@ def top_dangerous_ip(entries):
     sorted_ips = sorted(stats.items(), key=lambda x: x[1]["score"], reverse=True)
     top_10 = sorted_ips[:10]
 
-    print("🔐 Top 10 IP-uri periculoase\n" + "="*40)
+    print(" Top 10 IP-uri periculoase\n" + "="*40)
 
     for i, (ip, data) in enumerate(top_10, start=1):
 

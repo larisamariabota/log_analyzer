@@ -118,7 +118,10 @@ MENIURILE ESTENTIALE
   filter dupa text
 Statistici:
   --stats
- 
+ Spike
+  --skike_error
+  --skike_abuse
+   
 IP Analysis:
   --top_ips N
   --suspicious
@@ -154,3 +157,17 @@ Dashboard:
 9. Setări
 0. Ieșire
 Alege opțiunea:
+
+
+
+           RAPORT html -continut
+
+              
+Statistici generale
+✔️ Distribuție pe timp
+✔️ Top erori
+✔️ Profilare IP
+✔️ Top IP-uri suspecte
+✔️ Spike-uri
+✔️ Atacuri / pattern-uri suspecte
+✔️ Recomandări finale
