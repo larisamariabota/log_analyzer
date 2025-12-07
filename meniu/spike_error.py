@@ -7,6 +7,7 @@ def detect_error_spike(entries, min_count=5):
     """
 
     # Numărăm nivelurile
+    # cu ajutorul lui Counter se va numara fecventa fiecarui nivel si se salveasa in levels
     levels = Counter(e.get("level") for e in entries)
 
     total_errors = levels.get("ERROR", 0)

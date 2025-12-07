@@ -4,15 +4,15 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
 # Statistici generale
-from meniu.statistici import status as status    
+from meniu.statistici import status    
 
 # Top IP-uri
-from meniu.top_ip import top_ip,top_dangerous_ip  
+from meniu.top_ip import top_ip, top_dangerous_ip  
 
 # Profilare IP-uri
 from grouping.profile_by_ip import profile_by_ip         
 
-# Spike-uri bazate pe profile_by_ip 
+# Spike-uri
 from meniu.spike_abuse import detect_all_spikes
 
 # Suspicious patterns
@@ -25,28 +25,29 @@ from meniu.paterns import (
 
 def main():
 
-    logfile = "test_logs/nginx.log"
+    logfile = "test_logs/json_300.log"
 
-    # 1) Încarcă logul
+    # 1) Load file
     entries = load_file(logfile)
-   
     if not entries:
         print("Logul este gol!")
         return
 
-    print(" Log încarcat.")
-    
-    # generam informatiile generale pentru raport
-    # 2) Statistici generale
+    print(" Log încărcat.")
+
+    # 2) Statistici
     stats = status(entries)
 
-    # 3) Top IP-uri
+    # 3) TOP IP-uri
     top_ips_list = top_ip(entries)
-    top_dangerous_ip(entries)
-    # 4) Profilare IP-uri
+
+    # >>> AICI SALVĂM lista reală de IP-uri periculoase
+    dangerous_list = top_dangerous_ip(entries)
+
+    # 4) Profilare IP
     profiles = profile_by_ip(entries)
 
-    # 5) SPIKE-uri ( TOTUL vine din profile_by_ip)
+    # 5) Spike-uri
     spikes = detect_all_spikes(entries)
 
     # 6) Activitate suspectă
@@ -56,29 +57,40 @@ def main():
 
     suspicious = brute + scans + sens
 
-    # 7) Generare raport HTML
-    #raportul html va include toate informatiile colectate mai sus
+    # 7) Generare raport HTML (corect!)
     generate_html_report(
         filename=logfile,
         total_lines=len(entries),
-        level_stats=stats["levels"],     
-        top_ips=top_ips_list,                
-        ip_profiles=profiles,                
-        spikes=spikes,                        # ← NOUL sistem de spike-uri
-        suspicious_events=suspicious,      
-      
-        output_path="raport_complet.html"
+        level_stats=stats["levels"],
+        top_ips=top_ips_list,
+        ip_profiles=profiles,
+        spikes=spikes,
+        suspicious_events=suspicious,
+        output_path="raport_complet.html",
+
+        # suplimentare pentru secțiuni premium
+        top_dangerous_ip=dangerous_list,
+        suspicious_events_full=suspicious
     )
 
-    print("\n Raport generat: raport_complet.html")
+    #print("\n Raport generat: raport_complet.html")
 
-    spikes = detect_all_spikes(entries)
+    # debug
     print("\n=== SPIKES DEBUG ===")
     for s in spikes:
-     print(s)
+        print(s)
+
+    print("\n=== DANGEROUS IPs DEBUG ===")
+    print(dangerous_list)
+
+    print("\n=== SUSPICIOUS DEBUG ===")
+    for e in suspicious:
+      print(e)
 
 if __name__ == "__main__":
     main()
+
+
 
 
 

@@ -263,15 +263,16 @@ HTML_SHELL = r"""<!doctype html>
     </div> <!-- end grid -->
 
     <div class="footer">
-      <span class="gold">©</span> Raport generat automat • Stil Premium Dark-Gold
+      <span class="gold">©</span> Raport generat automat • Bota Maria Larisa
     </div>
 </div>"""
 # END HTML_SHELL
 
 
+import html
 
 # ============================================================
-#                HELPER FUNCTIONS (PYTHON)
+#                ROW BUILDERS
 # ============================================================
 
 def _level_rows(level_stats):
@@ -287,7 +288,7 @@ def _top_ip_rows(top_ips, total=None):
     rows = ""
     total = total or sum(c for _, c in top_ips) or 1
     for ip, count in (top_ips or []):
-        pct = (count/total)*100
+        pct = (count / total) * 100
         rows += (
             f"<tr>"
             f"<td>{html.escape(str(ip))}</td>"
@@ -298,30 +299,52 @@ def _top_ip_rows(top_ips, total=None):
     return rows
 
 
+# ============================================================
+#     IP-uri PERICULOASE — VARIANTA FINALĂ CORECTĂ
+# ============================================================
+
 def _dangerous_rows(dangerous_list):
+    """
+    PRIMEȘTE structura REALĂ:
+    [
+        ('192.168.0.17', {
+            'score': 18, 'errors': 16, '404': 0,
+            'admin_scans': 1, 'failed_login': 0, 'total_requests': 18
+        }),
+        ...
+    ]
+    """
     if not dangerous_list:
         return "<tr><td colspan='5'>Niciun IP periculos</td></tr>"
 
     rows = ""
-    for item in dangerous_list:
-        ip = html.escape(str(item.get("ip","-")))
-        cnt = item.get("count","-")
-        types = item.get("attack_types") or []
-        types_s = ", ".join(map(str, types)) if types else "-"
-        last_seen = html.escape(str(item.get("last_seen","-")))
-        risk = item.get("risk_score","-")
+    for ip, data in dangerous_list:
+
+        ip = html.escape(str(ip))
+        total = data.get("total_requests", 0)
+        errors = data.get("errors", 0)
+        scans = data.get("admin_scans", 0)
+        failed = data.get("failed_login", 0)
+        risk = data.get("score", 0)
+
+        types_str = f"ERR:{errors} • ADMIN:{scans} • FAIL:{failed}"
 
         rows += (
             f"<tr class='danger-row'>"
             f"<td class='ip-danger'>{ip}</td>"
-            f"<td>{cnt}</td>"
-            f"<td>{html.escape(types_s)}</td>"
-            f"<td>{last_seen}</td>"
+            f"<td>{total}</td>"
+            f"<td>{types_str}</td>"
+            f"<td>-</td>"      # nu ai last_seen în logurile tale
             f"<td>{risk}</td>"
             f"</tr>"
         )
+
     return rows
 
+
+# ============================================================
+#                ACTIVITATE SUSPECTĂ
+# ============================================================
 
 def _suspicious_rows_full(events):
     if not events:
@@ -330,22 +353,26 @@ def _suspicious_rows_full(events):
     rows = ""
     for e in events:
         risk = e.get("risk", 0)
-        is_danger = "danger-row" if risk > 0 else ""
+        row_class = "danger-row" if risk > 0 else ""
         ip_class = "ip-danger" if risk > 0 else ""
 
         rows += (
-            f"<tr class='{is_danger}'>"
+            f"<tr class='{row_class}'>"
             f"<td>{html.escape(str(e.get('timestamp','-')))}</td>"
             f"<td class='{ip_class}'>{html.escape(str(e.get('ip','-')))}</td>"
             f"<td>{html.escape(str(e.get('method','-')))}</td>"
             f"<td>{html.escape(str(e.get('path','-')))}</td>"
             f"<td>{html.escape(str(e.get('status','-')))}</td>"
-            f"<td>{html.escape(str(e.get('message','')))}</td>"
+            f"<td>{html.escape(str(e.get('message','-')))}</td>"
             f"<td>{html.escape(str(e.get('source','-')))}</td>"
             f"</tr>"
         )
     return rows
 
+
+# ============================================================
+#                  PROFIL IP
+# ============================================================
 
 def _group_table(mapping, headers):
     if not mapping:
@@ -385,18 +412,22 @@ def _profile_rows(ip_profiles):
 
         parts = []
         if data.get("by_hours"):
-            parts.append("<h4>By Hours</h4>"+_group_table(data["by_hours"], ["Hour","Count"]))
+            parts.append("<h4>By Hours</h4>" + _group_table(data["by_hours"], ["Hour", "Count"]))
         if data.get("by_method"):
-            parts.append("<h4>By Method</h4>"+_group_table(data["by_method"], ["Method","Count"]))
+            parts.append("<h4>By Method</h4>" + _group_table(data["by_method"], ["Method", "Count"]))
         if data.get("by_path"):
-            parts.append("<h4>By Path</h4>"+_group_table(data["by_path"], ["Path","Count"]))
+            parts.append("<h4>By Path</h4>" + _group_table(data["by_path"], ["Path", "Count"]))
         if data.get("by_status"):
-            parts.append("<h4>By Status</h4>"+_group_table(data["by_status"], ["Status","Count"]))
+            parts.append("<h4>By Status</h4>" + _group_table(data["by_status"], ["Status", "Count"]))
 
         chunks.append(card + "".join(parts))
 
     return "".join(chunks)
 
+
+# ============================================================
+#                     SPIKES
+# ============================================================
 
 def _spike_rows(spikes):
     if not spikes:
@@ -407,6 +438,7 @@ def _spike_rows(spikes):
         interval = s.get("interval", "N/A")
         count = s.get("count", "-")
         msg = html.escape(s.get("message", ""))
+
         rows += (
             f"<tr>"
             f"<td>{html.escape(str(interval))}</td>"
@@ -416,39 +448,49 @@ def _spike_rows(spikes):
             f"</tr>"
         )
     return rows
-def _generate_recommendations(top_dangerous_ip, spikes, suspicious_events):
+
+
+# ============================================================
+#               RECOMANDĂRI
+# ============================================================
+
+def _generate_recommendations(dangerous, spikes, suspicious):
     rec = []
 
-    # Recomandări pentru IP-uri periculoase
-    if top_dangerous_ip:
-        rec.append("<li><b>IP-uri periculoase detectate:</b> Recomand blocare firewall (iptables/UFW) și analiză suplimentară a traficului.</li>")
+    if dangerous:
+        rec.append("<li><b>IP-uri periculoase detectate:</b> Recomand blocare firewall și analiză suplimentară.</li>")
 
-    # Recomandări pentru brute-force / login attempts
-    if any(e.get("type") == "bruteforce" for e in suspicious_events):
-        rec.append("<li><b>Activitate bruteforce:</b> Activează rate limiting (fail2ban), crește durata lockout și verifică parolele expuse.</li>")
+    if any(e.get("type") == "bruteforce" for e in suspicious):
+        rec.append("<li><b>Bruteforce detectat:</b> Activează Fail2Ban.</li>")
 
-    # Recomandări pentru 404 scans
-    if any(e.get("type") == "scan_404" for e in suspicious_events):
-        rec.append("<li><b>404 Scan-uri repetate:</b> Oprește accesul la directoare sensibile și adaugă WAF/Cloudflare.</li>")
+    if any(e.get("type") == "scan_404" for e in suspicious):
+        rec.append("<li><b>Scanări 404:</b> Blochează accesul la directoare sensibile.</li>")
 
-    # Recomandări pentru path-uri sensibile
-    if any(e.get("type") == "sensitive_path" for e in suspicious_events):
-        rec.append("<li><b>Accesări repetate de fișiere sensibile:</b> Restricționează accesul public și mută rutele către zone securizate.</li>")
-
-    # Recomandări pentru spike-uri
     if spikes:
-        rec.append("<li><b>Spike-uri de trafic/erori:</b> Verifică logurile de load, monitorizează CPU/RAM și implementează alerte automate.</li>")
+        rec.append("<li><b>Spike-uri de trafic:</b> Monitorizează resursele serverului.</li>")
 
-    # Recomandare generală
-    rec.append("<li><b>Recomandare generală:</b> Activează log rotation, verifică versiunile serviciilor și implementează backup automat.</li>")
+    rec.append("<li><b>General:</b> Activează log rotation + backup automat.</li>")
 
     return "\n".join(rec)
 
 
-
 # ============================================================
-#         GENERARE RAPORT HTML — FUNCTIA FINALĂ
+#            GENERARE HTML — VARIANTA FINALĂ
 # ============================================================
+def _convert_suspicious(events):
+    converted = []
+    for e in events:
+        converted.append({
+            "timestamp": e.get("interval", "-"),
+            "ip": e.get("ip", "-"),
+            "method": "-",
+            "path": "-",
+            "status": "-",
+            "message": e.get("message", "-"),
+            "source": e.get("type", "-"),
+            "risk": 1
+        })
+    return converted
 
 def generate_html_report(
         filename,
@@ -463,9 +505,6 @@ def generate_html_report(
         top_dangerous_ip=None,
         suspicious_events_full=None
     ):
-    """
-    Versiunea FINALĂ a generatorului de rapoarte HTML.
-    """
 
     top_dangerous_ip = top_dangerous_ip or []
     suspicious_events_full = suspicious_events_full or []
@@ -478,8 +517,9 @@ def generate_html_report(
         dangerous_rows=_dangerous_rows(top_dangerous_ip),
         profile_rows=_profile_rows(ip_profiles or {}),
         spike_rows=_spike_rows(spikes or []),
-        suspicious_rows_full=_suspicious_rows_full(suspicious_events_full),
-        recommendations=_generate_recommendations(top_dangerous_ip, spikes, suspicious_events_full)
+       
+        recommendations=_generate_recommendations(top_dangerous_ip, spikes, suspicious_events_full),
+        suspicious_rows_full=_suspicious_rows_full(_convert_suspicious(suspicious_events_full))
 
     )
 
