@@ -1,172 +1,178 @@
-from collections import defaultdict
-from datetime import datetime, timedelta
+# spike_abuse.py
+
 from collections import Counter
+from grouping.profile_by_ip import profile_by_ip
+# (dacă ai alt path pentru profile_by_ip, modifici aici)
 
-# -------------------------------------------------------
-# SPIKE IP ABUSE
-# -------------------------------------------------------
+# ============================================================
+# 1 SPIKE TRAFIC PE IP
+# ============================================================
 
-def detect_spike_ip(entries, limit_per_minute=100, limit_per_hour=800):
+def spike_traffic(profiles, factor=2.5):
     """
-    Detecteaza spike-uri de trafic si potential abuz pentru fiecare IP.
+    Detectează IP-uri cu trafic anormal de mare.
+    profiles = rezultatul din profile_by_ip(entries)
+    """
+    counts = [p["count"] for p in profiles.values()]
+    if not counts:
+        return []
+
+    avg = sum(counts) / len(counts)
+
+    spikes = []
+    for ip, data in profiles.items():
+        if data["count"] >= avg * factor:
+            spikes.append({
+                "type": "Traffic Spike",
+                "ip": ip,
+                "count": data["count"],
+                "message": f"IP {ip} are {data['count']} cereri → peste media de {avg:.2f} (SPIKE trafic)."
+            })
+
+    return spikes
+
+
+# ============================================================
+#  SPIKE DE ERORI (ERROR)
+# ============================================================
+
+def spike_errors(profiles, min_errors=10):
+    """
+    Detectează IP-uri care produc multe ERROR.
+    """
+    spikes = []
+
+    for ip, data in profiles.items():
+        errors = data["levels"].get("ERROR", 0)
+        if errors >= min_errors:
+            spikes.append({
+                "type": "Error Spike",
+                "ip": ip,
+                "count": errors,
+                "message": f"IP {ip} are {errors} erori → posibil atac sau server instabil."
+            })
+
+    return spikes
+
+
+# ============================================================
+#  SPIKE 404 (scanare automată)
+# ============================================================
+
+def spike_404(profiles, min_404=10):
+    """
+    Detectează IP-uri cu multe coduri 404 → scanner.
+    """
+    spikes = []
+
+    for ip, data in profiles.items():
+        hits_404 = data["status_codes"].get(404, 0)
+        if hits_404 >= min_404:
+            spikes.append({
+                "type": "404 Spike",
+                "ip": ip,
+                "count": hits_404,
+                "message": f"IP {ip} a generat {hits_404} erori 404 → posibil scanner (brute-scan)."
+            })
+
+    return spikes
+
+
+# ============================================================
+# SPIKE ACCES PATH-URI SENSIBILE
+# ============================================================
+
+SENSITIVE_PATHS = [
+    "/admin", "/admin/login", "/admin/secret",
+    "/phpmyadmin", "/config", "/backup", "/setup"
+]
+
+def spike_sensitive_paths(profiles, min_hits=3):
+    """
+    Detectează IP-uri care accesează intens rute sensibile.
+    """
+    spikes = []
+
+    for ip, data in profiles.items():
+        hits = sum(1 for p in data["paths"] if p in SENSITIVE_PATHS)
+
+        if hits >= min_hits:
+            spikes.append({
+                "type": "Sensitive Path Spike",
+                "ip": ip,
+                "count": hits,
+                "message": f"IP {ip} a accesat {hits} rute sensibile → posibil atac targetat."
+            })
+
+    return spikes
+
+
+# ============================================================
+# 5 SPIKE GLOBAL ERORI ÎN TOT LOGUL
+# ============================================================
+
+def spike_global_errors(entries, min_errors=20):
+    """
+    ERROR > (WARN + INFO) * 2 → spike global de erori.
+    """
+    levels = Counter(e.get("level") for e in entries if e.get("level"))
+
+    errors = levels.get("ERROR", 0)
+    warn = levels.get("WARN", 0)
+    info = levels.get("INFO", 0)
+
+    if errors >= min_errors and errors > (warn + info) * 2:
+        return [{
+            "type": "Global Error Spike",
+            "count": errors,
+            "message": f"Spike global: {errors} erori → sistem afectat."
+        }]
+
+    return []
+
+
+# ============================================================
+# 6FUNCTIA FINALĂ: rulează TOATE spike-urile
+# ============================================================
+
+def detect_all_spikes(entries):
+    """
+    Folosește profile_by_ip pentru spike-uri inteligente.
     """
 
-    activity = defaultdict(lambda: defaultdict(int))  # IP -> minute -> count
+    # Generăm profilul direct aici
+    profiles = profile_by_ip(entries)
 
-    for entry in entries:
-        ip = entry.get("ip")
-        ts = entry.get("timestamp")
+    spikes = []
+    spikes += spike_traffic(profiles)
+    spikes += spike_errors(profiles)
+    spikes += spike_404(profiles)
+    spikes += spike_sensitive_paths(profiles)
+    spikes += spike_global_errors(entries)
 
-        # Ignoram timestampurile invalide (string, None etc.)
-        if not ip or not isinstance(ts, datetime):
-            continue
+    return spikes
 
-        # Rotunjim timestamp la minut
-        minute_key = ts.replace(second=0, microsecond=0)
-        activity[ip][minute_key] += 1
 
-    results = []
-
-    for ip, minutes in activity.items():
-        minute_list = sorted(minutes.items())
-
-        # Spike per minut
-        for minute, count in minute_list:
-            if count >= limit_per_minute:
-                results.append({
-                    "type": "IP Spike per minute",
-                    "ip": ip,
-                    "count": count,
-                    "interval": f"{minute.strftime('%H:%M')} - {(minute + timedelta(minutes=1)).strftime('%H:%M')}",
-                    "message": f"IP {ip} a trimis {count} cereri intr-un minut — posibil abuz."
-                })
-
-        # Spike per ora
-        hourly = defaultdict(int)
-        for minute, count in minute_list:
-            hour_key = minute.replace(minute=0, second=0, microsecond=0)
-            hourly[hour_key] += count
-
-        for hour, c in hourly.items():
-            if c >= limit_per_hour:
-                results.append({
-                    "type": "IP Spike per hour",
-                    "ip": ip,
-                    "count": c,
-                    "interval": f"{hour.strftime('%H:%M')} - {(hour + timedelta(hours=1)).strftime('%H:%M')}",
-                    "message": f"IP {ip} a generat {c} cereri intr-o ora — comportament agresiv."
-                })
-
-    return results
-
-# -------------------------------------------------------
-# SPIKE METHOD
-# -------------------------------------------------------
-
-def detect_spike_method(entries, limit_per_minute=150, limit_per_hour=1500):
-    """
-    Detecteaza spike-uri pe metode HTTP (GET, POST, etc.)
-    """
-
-    activity = defaultdict(lambda: defaultdict(int))  # METHOD -> minute -> count
-
-    for entry in entries:
-        method = entry.get("method")
-        ts = entry.get("timestamp")
-
-        # Ignoram timestampurile invalide
-        if not method or not isinstance(ts, datetime):
-            continue
-
-        minute_key = ts.replace(second=0, microsecond=0)
-        activity[method][minute_key] += 1
-
-    results = []
-
-    for method, minute_data in activity.items():
-        minute_list = sorted(minute_data.items())
-
-        # Spike per minut
-        for minute, count in minute_list:
-            if count >= limit_per_minute:
-                results.append({
-                    "type": "METHOD Spike per minute",
-                    "method": method,
-                    "count": count,
-                    "interval": f"{minute.strftime('%H:%M')} - {(minute + timedelta(minutes=1)).strftime('%H:%M')}",
-                    "message": f"Metoda {method} are {count} cereri intr-un minut — posibil abuz."
-                })
-
-        # Spike per ora
-        hourly = defaultdict(int)
-        for minute, count in minute_list:
-            hour_key = minute.replace(minute=0, second=0, microsecond=0)
-            hourly[hour_key] += count
-
-        for hour, c in hourly.items():
-            if c >= limit_per_hour:
-                results.append({
-                    "type": "METHOD Spike per hour",
-                    "method": method,
-                    "count": c,
-                    "interval": f"{hour.strftime('%H:%M')} - {(hour + timedelta(hours=1)).strftime('%H:%M')}",
-                    "message": f"Metoda {method} a generat {c} cereri intr-o ora — posibil abuz la nivel de API."
-                })
-
-    return results
-
-# -------------------------------------------------------
-# PRINT REPORT
-# -------------------------------------------------------
+# ============================================================
+# 7️ PRINT REPORT (OPȚIONAL)
+# ============================================================
 
 def print_spike_report(spikes):
     if not spikes:
-        print("Nu s-au detectat spike-uri sau comportament abuziv.")
+        print("\n Nu s-au detectat spike-uri.\n")
         return
 
-    print("\n================ SPIKE & ABUSE REPORT ================\n")
+    print("\n=========== SPIKE REPORT ===========\n")
 
     for s in spikes:
-        print("----------------------------------------")
+        print("------------------------------------")
+        print(f"TIP: {s['type']}")
         print(s["message"])
-        print(f"Interval: {s['interval']}")
-        print(f"Numar cereri: {s['count']}")
-        print(f"Tip: {s['type']}")
 
-        print("\nSugestii de actiune:")
-        print(" - Blocheaza temporar IP-ul sau metoda")
-        print(" - Aplica rate-limit")
-        print(" - Activeaza challenge (CAPTCHA/token)")
-        print(" - Logheaza detaliat cererile suspecte")
-        print(" - Notifica administratorul")
-        print("----------------------------------------\n")
+        if "ip" in s:
+            print(f"IP: {s['ip']}")
 
-# -------------------------------------------------------
-# ERROR SPIKE
-# -------------------------------------------------------
+        print(f"Count: {s['count']}")
+        print("------------------------------------\n")
 
-def detect_error_spike(entries, min_count=5):
-    """
-    Detecteaza daca exista spike de erori in intregul fisier log.
-    """
 
-    levels = Counter(e.get("level") for e in entries)
-
-    total_errors = levels.get("ERROR", 0)
-    total_info = levels.get("INFO", 0)
-    total_warn = levels.get("WARN", 0)
-
-    print("\nAnaliza spike de erori")
-    print("=" * 40)
-    print(f"INFO:  {total_info}")
-    print(f"WARN:  {total_warn}")
-    print(f"ERROR: {total_errors}")
-    print("=" * 40)
-
-    if total_errors >= min_count and total_errors > (total_info + total_warn) / 2:
-        print("SPIKE DE ERORI DETECTAT!")
-        print(f"ERROR = {total_errors} (anormal de multe)\n")
-        return True
-    else:
-        print("Nu s-a detectat spike de erori.\n")
-        return False

@@ -1,25 +1,19 @@
 from loader import load_file
 from report_html import generate_html_report
-
-# ------------------------------------
-#  IMPORTĂ FUNCȚIILE TALE REALE
-#  (MODIFICI DOAR NUMELE FUNCȚIILOR)
-# ------------------------------------
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 # Statistici generale
 from meniu.statistici import status as compute_stats    
 
 # Top IP-uri
-from meniu.top_ip import top_ip as top_ip       
+from meniu.top_ip import top_ip   
 
-# Profilare IP
+# Profilare IP-uri
 from grouping.profile_by_ip import profile_by_ip         
 
-# Spike-uri pe erori (VERIFICĂ numele funcției din fișierul tău!)
-from meniu.spike_error import detect_error_spike         
-
-# Spike-uri trafic (IP și METHOD)
-from meniu.spike_abuse import detect_spike_ip, detect_spike_method
+# Spike-uri bazate pe profile_by_ip (NOU!)
+from meniu.spike_abuse import detect_all_spikes
 
 # Suspicious patterns
 from meniu.paterns import (
@@ -28,9 +22,6 @@ from meniu.paterns import (
     detect_sensitive_path_access
 )
 
-# ------------------------------------
-#               MAIN
-# ------------------------------------
 
 def main():
 
@@ -54,25 +45,8 @@ def main():
     # 4) Profilare IP-uri
     profiles = profile_by_ip(entries)
 
-    # 5) Spike-uri
-    # 5) SPIKE-uri
-    spike_errors = detect_error_spike(entries)
-    spike_ip = detect_spike_ip(entries)
-    spike_method = detect_spike_method(entries)
-
-# Convertim booleanul din detect_error_spike intr-o lista
-    if spike_errors:
-     spike_errors_list = [{
-        "type": "ERROR Spike",
-        "count": stats["levels"].get("ERROR", 0),
-        "interval": "Global",
-        "message": "Spike de erori detectat in sistem."
-    }]
-    else:
-     spike_errors_list = []
-
-# Listele se aduna corect
-    all_spikes = spike_errors_list + spike_ip + spike_method
+    # 5) SPIKE-uri (NOU: TOTUL vine din profile_by_ip)
+    spikes = detect_all_spikes(entries)
 
     # 6) Activitate suspectă
     brute = detect_bruteforce(entries)
@@ -85,20 +59,23 @@ def main():
     generate_html_report(
         filename=logfile,
         total_lines=len(entries),
-        level_stats=stats["levels"],
-        top_ips=top_ips_list,
-        ip_profiles=profiles,
-        spikes=all_spikes,
-        suspicious_events=suspicious,
+        level_stats=stats["levels"],     
+        top_ips=top_ips_list,                
+        ip_profiles=profiles,                
+        spikes=spikes,                        # ← NOUL sistem de spike-uri
+        suspicious_events=suspicious,        
         output_path="raport_complet.html"
     )
 
-    print("\nRaport generat: raport_complet.html")
+    print("\n Raport generat: raport_complet.html")
 
+    spikes = detect_all_spikes(entries)
+    print("\n=== SPIKES DEBUG ===")
+    for s in spikes:
+     print(s)
 
 if __name__ == "__main__":
     main()
-
 
 
 
