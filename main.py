@@ -13,8 +13,8 @@ from meniu.top_ip import top_ip, top_dangerous_ip
 from grouping.profile_by_ip import profile_by_ip         
 
 # Spike-uri
-from meniu.spike_abuse import detect_all_spikes
-
+from meniu.spike_error import detect_error_spikes, print_spike_errors
+from meniu.defectiuni import defectiuni_sistem
 # Suspicious patterns
 from meniu.paterns import (
     detect_bruteforce,
@@ -25,7 +25,7 @@ from meniu.paterns import (
 
 def main():
 
-    logfile = "test_logs/json_300.log"
+    logfile = "test_logs/apache_300.log"
 
     # 1) Load file
     entries = load_file(logfile)
@@ -48,7 +48,7 @@ def main():
     profiles = profile_by_ip(entries)
 
     # 5) Spike-uri
-    spikes = detect_all_spikes(entries)
+    spikes = detect_error_spikes(entries)
 
     # 6) Activitate suspectă
     brute = detect_bruteforce(entries)
@@ -56,8 +56,10 @@ def main():
     sens = detect_sensitive_path_access(entries)
 
     suspicious = brute + scans + sens
-
-    # 7) Generare raport HTML (corect!)
+    # 7) Defectiuni de sistem
+    defection=defectiuni_sistem(entries)
+     
+    # 8) Generare raport HTML (corect!)
     generate_html_report(
         filename=logfile,
         total_lines=len(entries),
@@ -65,28 +67,16 @@ def main():
         top_ips=top_ips_list,
         ip_profiles=profiles,
         spikes=spikes,
-        suspicious_events=suspicious,
+        top_dangerous_ip=dangerous_list,
+        defect=defection,
         output_path="raport_complet.html",
 
-        # suplimentare pentru secțiuni premium
-        top_dangerous_ip=dangerous_list,
-        suspicious_events_full=suspicious
+       
     )
-
+    print(entries)
     #print("\n Raport generat: raport_complet.html")
-
-    # debug
-    print("\n=== SPIKES DEBUG ===")
-    for s in spikes:
-        print(s)
-
-    print("\n=== DANGEROUS IPs DEBUG ===")
-    print(dangerous_list)
-
-    print("\n=== SUSPICIOUS DEBUG ===")
-    for e in suspicious:
-      print(e)
-
+   
+  
 if __name__ == "__main__":
     main()
 

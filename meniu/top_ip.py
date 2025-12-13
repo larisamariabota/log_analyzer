@@ -46,7 +46,8 @@ def top_dangerous_ip(entries):
 
         msg = entry.get("message", "").lower()
         level = entry.get("level", "")
-
+        ts = entry.get("timestamp_dt")   # TIMPUL NORMALIZAT
+        
         if ip not in stats:
             stats[ip] = {
                 "score": 0,
@@ -54,10 +55,16 @@ def top_dangerous_ip(entries):
                 "404": 0,
                 "admin_scans": 0,
                 "failed_login": 0,
-                "total_requests": 0
+                "total_requests": 0,
+                "last_seen": None  
             }
 
         stats[ip]["total_requests"] += 1
+
+        # salvăm cel mai recent timestamp
+        if ts:
+            if stats[ip]["last_seen"] is None or ts > stats[ip]["last_seen"]:
+                stats[ip]["last_seen"] = ts
 
         # ERROR / WARN cresc riscul
         if level in ("ERROR", "WARN"):
@@ -90,6 +97,12 @@ def top_dangerous_ip(entries):
         total = data["total_requests"]
         pct_404 = (data["404"] / total * 100) if total else 0
 
+        # FORMATĂM TIMPUL PENTRU AFIȘARE
+        if data["last_seen"]:
+            last_seen_str = data["last_seen"].strftime("%Y-%m-%d %H:%M:%S")
+        else:
+            last_seen_str = "-"
+
         print(f"{i}. {ip} ({total} cereri)")
         
         if data['404'] > 0:
@@ -104,6 +117,8 @@ def top_dangerous_ip(entries):
         if data['errors'] > 0:
             print(f" • {data['errors']} mesaje ERROR/WARN")
 
+        print(f" • Ultima activitate: {last_seen_str}")
+
         # recomandare status
         if data["score"] >= 10:
             status = "BLOCAT imediat"
@@ -115,5 +130,3 @@ def top_dangerous_ip(entries):
         print(f" Status: {status}\n")
 
     return top_10
-
-      
