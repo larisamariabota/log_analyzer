@@ -334,7 +334,7 @@ def _dangerous_rows(dangerous_list):
             f"<td class='ip-danger'>{ip}</td>"
             f"<td>{total}</td>"
             f"<td>{types_str}</td>"
-            f"<td>-</td>"      # nu ai last_seen în logurile tale
+            f"<td>-</td>"      
             f"<td>{risk}</td>"
             f"</tr>"
         )
