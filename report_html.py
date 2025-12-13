@@ -349,7 +349,7 @@ def _dangerous_rows(dangerous_list):
 def _defect_rows(events):
     if not events:
         return "<tr><td colspan='7'>Nicio defecțiune sistem detectată</td></tr>"
-
+   # aici doar trranspunem lista din dectiuni.py, randuri HTML
     rows = ""
     for e in events:
         rows += (
@@ -456,13 +456,13 @@ def _generate_recommendations(dangerous, spikes, defect):
 
     rec.append("<li><b>General:</b> Activează log rotation + backup.</li>")
 
-    return "\n".join(rec)
+    return "\n".join(rec) #Convertește lista într-un singur text HTML concatenat cu newline.
 
 
 # ============================================================
 #                GENERARE RAPORT FINAL
 # ============================================================
-
+# generam variabilele pentru HTML_SHELL pe care le commpletam cu date reale, si le folosim in fnctiile pentru generare raport
 def generate_html_report(
         filename,
         total_lines,
@@ -479,7 +479,10 @@ def generate_html_report(
 
     top_dangerous_ip = top_dangerous_ip or []
     defect = defect or []           # ← LISTA REALĂ de defecțiuni
-
+   
+    #HTML_SHELL este sablonul principal, completat cu datele reale, 
+    # aceste variabile merg in interiorul codului HTML si se actualizeaza in timp real
+     
     html_out = HTML_SHELL.format(
         filename=filename,
         total_lines=total_lines,

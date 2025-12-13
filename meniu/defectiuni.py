@@ -3,7 +3,8 @@ from datetime import timedelta
 
 def defectiuni_sistem(entries, min_errors=5, window_seconds=10):
     failures = []
-
+    #min_errors reprezinta pragul minim de erori pt a considera o defectiune
+    #window_seconds reprezinta ferestra de timp pt a detectaa o defectiune
     # sortăm după timp
     entries = sorted(entries, key=lambda e: e["timestamp_dt"])
 
@@ -11,22 +12,25 @@ def defectiuni_sistem(entries, min_errors=5, window_seconds=10):
     server_errors = [e for e in entries if e.get("status") in (500, 501, 502, 503, 504)]
 
     # ----------------------------------------------------------
-    # 1) SPIKE DE 500/503
+    # 1) SPIKE DE 500/504
     # ----------------------------------------------------------
+# intre 500-504 sunt erori de server
     start = 0
     for i in range(len(server_errors)):
-        while server_errors[i]["timestamp_dt"] - server_errors[start]["timestamp_dt"] > timedelta(seconds=window_seconds):
+        while server_errors[i]["timestamp_dt"] - server_errors[start]["timestamp_dt"] > timedelta(seconds=window_seconds): 
+            #sortam doar erorile din fereastra  de timp a lui window_seconds
             start += 1
-
+        # i este indexul erori curente, start este indexul de la inceput
         count = i - start + 1
-        if count >= min_errors:
+        if count >= min_errors: #daca numarul de erori depastest pragulu minim
+            # adaugam la lista de defectiuni
             failures.append({
                 "timestamp": f"{server_errors[start]['timestamp_dt']} → {server_errors[i]['timestamp_dt']}",
                 "ip": server_errors[i].get("ip", "-"),
                 "method": server_errors[i].get("method", "-"),
                 "path": server_errors[i].get("path", "-"),
                 "status": server_errors[i].get("status", "-"),
-                "message": f"{count} erori 500/503 într-un interval scurt — posibil cădere server.",
+                "message": f"{count} erori 500/504 într-un interval scurt — posibil cădere server.",
                 "source": "Server Error Spike",
                 "risk": 1
             })
