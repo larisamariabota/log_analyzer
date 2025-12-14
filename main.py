@@ -25,7 +25,7 @@ from meniu.paterns import (
 
 def main():
 
-    logfile = "test_logs/apache_300.log"
+    logfile = "test_logs/syslog_300.log"
 
     # 1) Load file
     entries = load_file(logfile)
@@ -67,13 +67,13 @@ def main():
         top_ips=top_ips_list,
         ip_profiles=profiles,
         spikes=spikes,
+        suspicious_events=suspicious,     # ← AI NEVOIE DE EL
         top_dangerous_ip=dangerous_list,
         defect=defection,
         output_path="raport_complet.html",
-
-       
     )
-    print(entries)
+
+    print("Raport generat.")
     #print("\n Raport generat: raport_complet.html")
    
   

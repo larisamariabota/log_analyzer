@@ -1,9 +1,10 @@
+
 <!doctype html>
 <html lang="ro">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Raport log — test_logs/apache_300.log</title>
+  <title>Raport log — test_logs/syslog_300.log</title>
   <style>
 
     :root{
@@ -32,7 +33,6 @@
     }
     a{color:inherit}
     .container{max-width:1200px;margin:40px auto;padding:0 20px}
-      
 
     .hero{
       position:relative;
@@ -52,8 +52,6 @@
       padding:6px 12px;
       border:1px solid rgba(245,197,66,.32);
       border-radius:999px;
-    
-
       background:linear-gradient(180deg, rgba(245,197,66,.18), rgba(245,197,66,.08));
       color:#ffe7a3;
       font-size:12px; font-weight:700;
@@ -103,7 +101,6 @@
     tbody tr:nth-child(even){background:var(--row-alt)}
     tbody tr:hover{background:var(--row-hover)}
 
-    /* IP periculos */
     td.ip-danger{color:var(--danger); font-weight:700}
     tr.danger-row{background:var(--danger-bg) !important}
 
@@ -122,135 +119,88 @@
     <section class="hero">
       <div class="title">
         <span class="pill">Security • Report</span>
-        <h1>Raport log pentru <span class="gold">test_logs/apache_300.log</span></h1>
+        <h1>Raport log pentru <span class="gold">test_logs/syslog_300.log</span></h1>
       </div>
       <div class="meta">
-        <div>Total linii: <b>331</b></div>
+        <div>Total linii: <b>300</b></div>
         <div>Generat la: <b><script>document.write(new Date().toLocaleString())</script></b></div>
       </div>
     </section>
 
     <div class="grid">
 
-      <!-- NIVELURI -->
       <section class="card col-6">
         <div class="head"><h2>Distribuție pe niveluri</h2></div>
         <div class="body">
-          <div class="table-wrap">
-            <table data-table="levels">
-              <thead><tr>
-                <th data-sort="text">Nivel</th>
-                <th data-sort="num">Count</th>
-                <th data-sort="num">Procent</th>
-              </tr></thead>
-              <tbody><tr><td>INFO</td><td>98</td><td>29.61%</td></tr><tr><td>WARN</td><td>129</td><td>38.97%</td></tr><tr><td>ERROR</td><td>104</td><td>31.42%</td></tr></tbody>
-            </table>
-          </div>
+          <div class="table-wrap"><table>
+            <thead><tr>
+              <th>Nivel</th><th>Count</th><th>Procent</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table></div>
         </div>
       </section>
 
-      <!-- TOP IP -->
       <section class="card col-6">
         <div class="head"><h2>Top IP-uri</h2></div>
         <div class="body">
-          <div class="table-wrap">
-            <table data-table="top">
-              <thead><tr>
-                <th data-sort="text">IP</th>
-                <th data-sort="num">CererI</th>
-                <th data-sort="num">Procent</th>
-              </tr></thead>
-              <tbody><tr><td>192.168.0.10</td><td>21</td><td>6.34%</td></tr><tr><td>192.168.0.8</td><td>21</td><td>6.34%</td></tr><tr><td>192.168.0.16</td><td>19</td><td>5.74%</td></tr><tr><td>192.168.0.3</td><td>19</td><td>5.74%</td></tr><tr><td>192.168.0.19</td><td>19</td><td>5.74%</td></tr><tr><td>192.168.0.17</td><td>18</td><td>5.44%</td></tr><tr><td>192.168.0.6</td><td>17</td><td>5.14%</td></tr><tr><td>192.168.0.0</td><td>17</td><td>5.14%</td></tr><tr><td>192.168.0.11</td><td>17</td><td>5.14%</td></tr><tr><td>192.168.0.2</td><td>16</td><td>4.83%</td></tr></tbody>
-            </table>
-          </div>
+          <div class="table-wrap"><table>
+            <thead><tr>
+              <th>IP</th><th>Cereri</th><th>Procent</th>
+            </tr></thead>
+            <tbody><tr><td>192.168.0.6</td><td>20</td><td>11.49%</td></tr><tr><td>192.168.0.11</td><td>20</td><td>11.49%</td></tr><tr><td>192.168.0.8</td><td>19</td><td>10.92%</td></tr><tr><td>192.168.0.9</td><td>18</td><td>10.34%</td></tr><tr><td>192.168.0.2</td><td>17</td><td>9.77%</td></tr><tr><td>192.168.0.16</td><td>17</td><td>9.77%</td></tr><tr><td>192.168.0.13</td><td>16</td><td>9.20%</td></tr><tr><td>192.168.0.17</td><td>16</td><td>9.20%</td></tr><tr><td>192.168.0.12</td><td>16</td><td>9.20%</td></tr><tr><td>192.168.0.10</td><td>15</td><td>8.62%</td></tr></tbody>
+          </table></div>
         </div>
       </section>
 
-      <!-- IP PERICULOASE -->
       <section class="card col-12">
         <div class="head"><h2 class="gold">Top IP-uri Periculoase</h2></div>
         <div class="body">
-          <div class="table-wrap">
-            <table data-table="dangerous">
-              <thead><tr>
-                <th data-sort="text">IP</th>
-                <th data-sort="num">Atacuri</th>
-                <th data-sort="text">Tipuri</th>
-                <th data-sort="text">Ultima</th>
-                <th data-sort="num">Scor risc</th>
-              </tr></thead>
-              <tbody><tr class='danger-row'><td class='ip-danger'>192.168.0.17</td><td>18</td><td>ERR:16 • ADMIN:1 • FAIL:0</td><td>2025-01-15 21:57:03</td><td>18</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.10</td><td>21</td><td>ERR:15 • ADMIN:1 • FAIL:0</td><td>2025-01-15 23:13:56</td><td>17</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.8</td><td>21</td><td>ERR:13 • ADMIN:2 • FAIL:0</td><td>2025-01-15 21:53:04</td><td>17</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.11</td><td>17</td><td>ERR:12 • ADMIN:2 • FAIL:0</td><td>2025-01-15 22:41:07</td><td>16</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.2</td><td>16</td><td>ERR:12 • ADMIN:2 • FAIL:0</td><td>2025-01-15 23:36:31</td><td>16</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.16</td><td>19</td><td>ERR:13 • ADMIN:1 • FAIL:0</td><td>2025-01-15 23:54:16</td><td>15</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.7</td><td>15</td><td>ERR:11 • ADMIN:2 • FAIL:0</td><td>2025-01-15 22:35:58</td><td>15</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.3</td><td>19</td><td>ERR:14 • ADMIN:0 • FAIL:0</td><td>2025-01-15 23:35:02</td><td>14</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.19</td><td>19</td><td>ERR:8 • ADMIN:3 • FAIL:0</td><td>2025-01-15 22:20:25</td><td>14</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.9</td><td>15</td><td>ERR:10 • ADMIN:2 • FAIL:0</td><td>2025-01-15 23:40:53</td><td>14</td></tr></tbody>
-            </table>
-          </div>
+          <div class="table-wrap"><table>
+            <thead><tr>
+              <th>IP</th><th>Atacuri</th><th>Tipuri</th><th>Ultima</th><th>Risc</th>
+            </tr></thead>
+            <tbody><tr class='danger-row'><td class='ip-danger'>192.168.0.6</td><td>20</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 23:12:56</td><td>0</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.2</td><td>17</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 19:16:41</td><td>0</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.8</td><td>19</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 22:16:50</td><td>0</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.5</td><td>14</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 23:51:21</td><td>0</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.14</td><td>13</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 23:15:35</td><td>0</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.3</td><td>10</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 22:27:46</td><td>0</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.13</td><td>16</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 22:12:47</td><td>0</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.4</td><td>11</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 20:02:58</td><td>0</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.19</td><td>11</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 23:25:58</td><td>0</td></tr><tr class='danger-row'><td class='ip-danger'>192.168.0.10</td><td>15</td><td>ERR:0 • ADMIN:0 • FAIL:0</td><td>1900-01-15 22:04:31</td><td>0</td></tr></tbody>
+          </table></div>
         </div>
       </section>
 
-      <!-- DEFECTIUNI IN SISTEM-->
       <section class="card col-12">
-        <div class="head"><h2>Posibile defectiuni in sistem</h2></div>
+        <div class="head"><h2>Posibile defecțiuni în sistem</h2></div>
         <div class="body">
-          <div class="table-wrap">
-            <table data-table="sus">
-              <thead><tr>
-                <th data-sort="text">Timestamp</th>
-                <th data-sort="text">IP</th>
-                <th data-sort="text">Method</th>
-                <th data-sort="text">Path</th>
-                <th data-sort="num">Status</th>
-                <th data-sort="text">Mesaj</th>
-                <th data-sort="text">Sursă</th>
-              </tr></thead>
-             <tbody><tr class='danger-row'><td>2025-01-15 12:34:00 → 2025-01-15 12:34:04</td><td>192.168.0.200</td><td>GET</td><td>/api/data</td><td>503</td><td>5 erori 500/503 într-un interval scurt — posibil cădere server.</td><td>Server Error Spike</td></tr><tr class='danger-row'><td>2025-01-15 00:02:27</td><td>192.168.0.10</td><td>POST</td><td>/api/users</td><td>502</td><td>15 erori server pe /api/users — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 00:03:26</td><td>192.168.0.13</td><td>DELETE</td><td>/product/123</td><td>503</td><td>8 erori server pe /product/123 — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 00:08:10</td><td>192.168.0.12</td><td>GET</td><td>/dashboard</td><td>502</td><td>7 erori server pe /dashboard — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 00:34:32</td><td>192.168.0.17</td><td>PUT</td><td>/login</td><td>503</td><td>5 erori server pe /login — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 01:05:58</td><td>192.168.0.10</td><td>GET</td><td>/register</td><td>503</td><td>6 erori server pe /register — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 02:05:27</td><td>192.168.0.2</td><td>PUT</td><td>/profile</td><td>503</td><td>5 erori server pe /profile — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 02:38:37</td><td>192.168.0.17</td><td>DELETE</td><td>/logout</td><td>502</td><td>5 erori server pe /logout — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 03:00:20</td><td>192.168.0.8</td><td>GET</td><td>/products</td><td>502</td><td>7 erori server pe /products — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 03:02:05</td><td>192.168.0.11</td><td>GET</td><td>/admin</td><td>503</td><td>10 erori server pe /admin — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 04:13:21</td><td>192.168.0.3</td><td>DELETE</td><td>/search?q=test</td><td>503</td><td>8 erori server pe /search?q=test — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 05:11:58</td><td>192.168.0.0</td><td>GET</td><td>/checkout</td><td>500</td><td>7 erori server pe /checkout — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 09:30:19</td><td>192.168.0.13</td><td>GET</td><td>/api/search</td><td>503</td><td>7 erori server pe /api/search — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 12:34:00</td><td>192.168.0.200</td><td>GET</td><td>/api/data</td><td>500</td><td>10 erori server pe /api/data — endpoint posibil căzut.</td><td>Path Failure</td></tr><tr class='danger-row'><td>2025-01-15 00:02:27</td><td>192.168.0.10</td><td>POST</td><td>/api/users</td><td>502</td><td>Mesajul &#x27;POST /api/users&#x27; apare de 6 ori — componentă sistem defectă.</td><td>Repetitive Error</td></tr><tr class='danger-row'><td>2025-01-15 12:34:00</td><td>192.168.0.200</td><td>GET</td><td>/api/data</td><td>500</td><td>Mesajul &#x27;GET /api/data&#x27; apare de 10 ori — componentă sistem defectă.</td><td>Repetitive Error</td></tr></tbody>
-            </table>
-          </div>
+          <div class="table-wrap"><table>
+            <thead><tr>
+              <th>Timestamp</th><th>IP</th><th>Method</th><th>Path</th><th>Status</th><th>Mesaj</th><th>Sursă</th>
+            </tr></thead>
+            <tbody><tr><td colspan='7'>Nicio defecțiune sistem detectată</td></tr></tbody>
+          </table></div>
         </div>
       </section>
 
-      <!-- PROFILURI IP -->
-      <section class="card col-12">
-        <div class="head"><h2>Profiluri IP (hours • method • path • status)</h2></div>
-        <div class="body">
-          <h3 style='margin-top:20px'>192.168.0.6</h3><p>Total: <b>17</b> • ERROR: <b>2</b> • 404: <b>2</b></p><p style='color:#d9dde6'>Rute: /api/users, /search?q=test, /products, /checkout, /logout, /dashboard, /product/123, /login, /register, /profile, /admin</p><h3 style='margin-top:20px'>192.168.0.16</h3><p>Total: <b>19</b> • ERROR: <b>7</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /profile, /cart, /login, /register, /search?q=test, /products, /admin, /product/123, /checkout, /logout</p><h3 style='margin-top:20px'>192.168.0.3</h3><p>Total: <b>19</b> • ERROR: <b>6</b> • 404: <b>1</b></p><p style='color:#d9dde6'>Rute: /dashboard, /cart, /register, /logout, /login, /product/123, /profile, /search?q=test, /checkout</p><h3 style='margin-top:20px'>192.168.0.19</h3><p>Total: <b>19</b> • ERROR: <b>4</b> • 404: <b>1</b></p><p style='color:#d9dde6'>Rute: /dashboard, /api/users, /admin, /logout, /search?q=test, /product/123, /profile, /login, /api/search, /checkout, /register</p><h3 style='margin-top:20px'>192.168.0.13</h3><p>Total: <b>15</b> • ERROR: <b>8</b> • 404: <b>1</b></p><p style='color:#d9dde6'>Rute: /cart, /products, /login, /product/123, /search?q=test, /api/users, /api/search, /checkout</p><h3 style='margin-top:20px'>192.168.0.14</h3><p>Total: <b>10</b> • ERROR: <b>2</b> • 404: <b>1</b></p><p style='color:#d9dde6'>Rute: /api/search, /products, /search?q=test, /profile, /api/users, /admin</p><h3 style='margin-top:20px'>192.168.0.0</h3><p>Total: <b>17</b> • ERROR: <b>7</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /api/users, /logout, /products, /product/123, /checkout, /register, /dashboard, /profile, /search?q=test</p><h3 style='margin-top:20px'>192.168.0.10</h3><p>Total: <b>21</b> • ERROR: <b>5</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /api/search, /logout, /search?q=test, /api/users, /profile, /register, /product/123, /admin, /login, /dashboard</p><h3 style='margin-top:20px'>192.168.0.8</h3><p>Total: <b>21</b> • ERROR: <b>4</b> • 404: <b>1</b></p><p style='color:#d9dde6'>Rute: /search?q=test, /product/123, /api/users, /register, /admin, /products, /profile, /api/search, /cart, /login</p><h3 style='margin-top:20px'>192.168.0.4</h3><p>Total: <b>14</b> • ERROR: <b>2</b> • 404: <b>3</b></p><p style='color:#d9dde6'>Rute: /checkout, /api/users, /products, /login, /dashboard, /api/search, /profile, /product/123</p><h3 style='margin-top:20px'>192.168.0.11</h3><p>Total: <b>17</b> • ERROR: <b>6</b> • 404: <b>3</b></p><p style='color:#d9dde6'>Rute: /products, /dashboard, /product/123, /register, /api/users, /search?q=test, /profile, /login, /admin</p><h3 style='margin-top:20px'>192.168.0.2</h3><p>Total: <b>16</b> • ERROR: <b>5</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /products, /checkout, /api/users, /product/123, /cart, /search?q=test, /profile, /logout, /admin, /api/search, /login</p><h3 style='margin-top:20px'>192.168.0.9</h3><p>Total: <b>15</b> • ERROR: <b>4</b> • 404: <b>1</b></p><p style='color:#d9dde6'>Rute: /profile, /checkout, /cart, /register, /login, /admin, /search?q=test, /logout, /api/users, /dashboard</p><h3 style='margin-top:20px'>192.168.0.1</h3><p>Total: <b>6</b> • ERROR: <b>1</b> • 404: <b>1</b></p><p style='color:#d9dde6'>Rute: /login, /api/users, /api/search, /profile, /register, /logout</p><h3 style='margin-top:20px'>192.168.0.18</h3><p>Total: <b>16</b> • ERROR: <b>5</b> • 404: <b>2</b></p><p style='color:#d9dde6'>Rute: /register, /products, /product/123, /checkout, /api/search, /admin, /api/users, /profile, /cart</p><h3 style='margin-top:20px'>192.168.0.5</h3><p>Total: <b>9</b> • ERROR: <b>4</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /login, /dashboard, /logout, /api/users, /product/123, /api/search, /admin</p><h3 style='margin-top:20px'>192.168.0.7</h3><p>Total: <b>15</b> • ERROR: <b>6</b> • 404: <b>1</b></p><p style='color:#d9dde6'>Rute: /logout, /api/users, /cart, /login, /dashboard, /product/123, /admin, /search?q=test, /register</p><h3 style='margin-top:20px'>192.168.0.17</h3><p>Total: <b>18</b> • ERROR: <b>9</b> • 404: <b>1</b></p><p style='color:#d9dde6'>Rute: /admin, /login, /search?q=test, /dashboard, /logout, /product/123, /api/search, /checkout, /api/users, /profile, /register</p><h3 style='margin-top:20px'>192.168.0.12</h3><p>Total: <b>7</b> • ERROR: <b>2</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /api/users, /dashboard, /register, /login, /admin</p><h3 style='margin-top:20px'>192.168.0.15</h3><p>Total: <b>9</b> • ERROR: <b>5</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /checkout, /search?q=test, /admin, /dashboard, /login, /cart</p><h3 style='margin-top:20px'>203.0.113.50</h3><p>Total: <b>10</b> • ERROR: <b>0</b> • 404: <b>10</b></p><p style='color:#d9dde6'>Rute: /robots.txt, /ads.txt, /config.php, /phpmyadmin, /server-status, /backup.zip, /shadow, /secret, /login.php, /admin</p><h3 style='margin-top:20px'>192.168.0.50</h3><p>Total: <b>6</b> • ERROR: <b>0</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /login</p><h3 style='margin-top:20px'>198.51.100.23</h3><p>Total: <b>5</b> • ERROR: <b>0</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /admin, /admin/login, /config, /backup, /phpmyadmin</p><h3 style='margin-top:20px'>192.168.0.200</h3><p>Total: <b>10</b> • ERROR: <b>10</b> • 404: <b>0</b></p><p style='color:#d9dde6'>Rute: /api/data</p>
-        </div>
-      </section>
-
-             <!-- SPIKES -->
       <section class="card col-12">
         <div class="head"><h2>Spike-uri detectate</h2></div>
         <div class="body">
-          <div class="table-wrap">
-            <table data-table="spikes">
-              <thead><tr>
-                <th data-sort="text">Interval/Ora</th>
-                <th data-sort="text">Nivel</th>
-                <th data-sort="num">Count</th>
-                <th data-sort="text">Tip spike</th>
-              </tr></thead>
-             <tbody>
-               <tr><td>2025-01-15 12:34:00 → 2025-01-15 12:34:02</td><td>Temporal Error Spike</td><td>3</td><td>3 erori într-o fereastră de 10s</td></tr><tr><td>2025-01-15 12:34:00 → 2025-01-15 12:34:03</td><td>Temporal Error Spike</td><td>4</td><td>4 erori într-o fereastră de 10s</td></tr><tr><td>2025-01-15 12:34:00 → 2025-01-15 12:34:04</td><td>Temporal Error Spike</td><td>5</td><td>5 erori într-o fereastră de 10s</td></tr><tr><td>2025-01-15 12:34:00 → 2025-01-15 12:34:05</td><td>Temporal Error Spike</td><td>6</td><td>6 erori într-o fereastră de 10s</td></tr><tr><td>2025-01-15 12:34:00 → 2025-01-15 12:34:06</td><td>Temporal Error Spike</td><td>7</td><td>7 erori într-o fereastră de 10s</td></tr><tr><td>2025-01-15 12:34:00 → 2025-01-15 12:34:07</td><td>Temporal Error Spike</td><td>8</td><td>8 erori într-o fereastră de 10s</td></tr><tr><td>2025-01-15 12:34:00 → 2025-01-15 12:34:08</td><td>Temporal Error Spike</td><td>9</td><td>9 erori într-o fereastră de 10s</td></tr><tr><td>2025-01-15 12:34:00 → 2025-01-15 12:34:09</td><td>Temporal Error Spike</td><td>10</td><td>10 erori într-o fereastră de 10s</td></tr>
-                 </tbody>
-
-            </table>
-          </div>
+          <div class="table-wrap"><table>
+            <thead><tr>
+              <th>Interval</th><th>Tip</th><th>Count</th><th>Mesaj</th>
+            </tr></thead>
+            <tbody><tr><td colspan='4'>Niciun spike detectat</td></tr></tbody>
+          </table></div>
         </div>
       </section>
 
-      <!-- RECOMANDĂRI FINALE -->
       <section class="card col-12">
-        <div class="head">
-          <h2 class="gold">Recomandări Finale de Securitate</h2>
-        </div>
+        <div class="head"><h2 class="gold">Recomandări finale</h2></div>
         <div class="body">
-          <ul style="line-height:1.8; padding-left:20px; margin:0; color:#eaeaea; list-style:disc;">
-            <li><b>Spike-uri de trafic/erori:</b> Verifică logurile de load, monitorizează CPU/RAM și implementează alerte automate.</li>
-            <li><b>Recomandare generală:</b> Activează log rotation, verifică versiunile serviciilor și implementează backup automat.</li>
-          </ul>
+          <ul><li><b>IP-uri periculoase:</b> Recomand blocare firewall.</li>
+<li><b>General:</b> Activează log rotation și backup automat.</li></ul>
         </div>
       </section>
 
-    </div> <!-- end grid -->
-
+    </div>
     <div class="footer">
       <span class="gold">©</span> Raport generat automat • Bota Maria Larisa
     </div>
-</div>
+  </div>
+</body>
+</html>
