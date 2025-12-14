@@ -1,21 +1,16 @@
-from loader import load_file
-from report_html import generate_html_report
+import argparse
 import sys
-sys.stdout.reconfigure(encoding='utf-8')
 
-# Statistici generale
-from meniu.statistici import status    
+# pentru Unicode în terminal (Windows)
+sys.stdout.reconfigure(encoding="utf-8")
 
-# Top IP-uri
-from meniu.top_ip import top_ip, top_dangerous_ip  
+from loader import load_file
+from raport.creaza_raport import run_report
 
-# Profilare IP-uri
-from grouping.profile_by_ip import profile_by_ip         
-
-# Spike-uri
-from meniu.spike_error import detect_error_spikes, print_spike_errors
-from meniu.defectiuni import defectiuni_sistem
-# Suspicious patterns
+# funcțiile tale existente
+from meniu.statistici import status
+from meniu.top_ip import top_ip
+from meniu.spike_error import detect_error_spikes
 from meniu.paterns import (
     detect_bruteforce,
     detect_404_scans,
@@ -24,62 +19,99 @@ from meniu.paterns import (
 
 
 def main():
-
-    logfile = "test_logs/syslog_300.log"
-
-    # 1) Load file
-    entries = load_file(logfile)
-    if not entries:
-        print("Logul este gol!")
-        return
-
-    print(" Log încărcat.")
-
-    # 2) Statistici
-    stats = status(entries)
-
-    # 3) TOP IP-uri
-    top_ips_list = top_ip(entries)
-
-    # >>> AICI SALVĂM lista reală de IP-uri periculoase
-    dangerous_list = top_dangerous_ip(entries)
-
-    # 4) Profilare IP
-    profiles = profile_by_ip(entries)
-
-    # 5) Spike-uri
-    spikes = detect_error_spikes(entries)
-
-    # 6) Activitate suspectă
-    brute = detect_bruteforce(entries)
-    scans = detect_404_scans(entries)
-    sens = detect_sensitive_path_access(entries)
-
-    suspicious = brute + scans + sens
-    # 7) Defectiuni de sistem
-    defection=defectiuni_sistem(entries)
-     
-    # 8) Generare raport HTML (corect!)
-    generate_html_report(
-        filename=logfile,
-        total_lines=len(entries),
-        level_stats=stats["levels"],
-        top_ips=top_ips_list,
-        ip_profiles=profiles,
-        spikes=spikes,
-        suspicious_events=suspicious,     # ← AI NEVOIE DE EL
-        top_dangerous_ip=dangerous_list,
-        defect=defection,
-        output_path="raport_complet.html",
+    parser = argparse.ArgumentParser(
+        description="Analizor de log-uri de sistem"
     )
 
-    print("Raport generat.")
-    #print("\n Raport generat: raport_complet.html")
-   
-  
+    # =========================
+    # ARGUMENT OBLIGATORIU
+    # =========================
+    parser.add_argument(
+        "logfile",
+        help="Fisierul de log (apache, nginx, syslog, custom)"
+    )
+
+    # =========================
+    # OPȚIUNI CLI
+    # =========================
+    parser.add_argument(
+        "--stats",
+        action="store_true",
+        help="Afiseaza statistici generale"
+    )
+
+    parser.add_argument(
+        "--top_ips",
+        type=int,
+        metavar="N",
+        help="Afiseaza top N IP-uri"
+    )
+
+    parser.add_argument(
+        "--spikes",
+        action="store_true",
+        help="Detecteaza spike-uri de erori"
+    )
+
+    parser.add_argument(
+        "--suspicious",
+        action="store_true",
+        help="Detecteaza activitate suspecta (bruteforce, 404, path-uri sensibile)"
+    )
+
+    parser.add_argument(
+        "--report",
+        choices=["html"],
+        help="Genereaza raport (html)"
+    )
+
+    parser.add_argument(
+        "--output",
+        default="raport_complet.html",
+        help="Fisierul HTML generat"
+    )
+
+    args = parser.parse_args()
+
+    # =========================
+    # ÎNCARCĂ LOGUL O SINGURĂ DATĂ
+    # =========================
+    entries = load_file(args.logfile)
+    if not entries:
+        print("Logul este gol sau nu a putut fi citit.")
+        return
+
+    print(f"\n✔ Log incarcat: {args.logfile}")
+    print(f"✔ Total inregistrari: {len(entries)}\n")
+
+    # =========================
+    # EXECUTĂ COMENZILE CLI
+    # =========================
+
+    if args.stats:
+        status(entries)
+
+    if args.top_ips:
+        print(f"\nTop {args.top_ips} IP-uri:")
+        top_ip(entries, args.top_ips)
+
+    if args.spikes:
+        detect_error_spikes(entries)
+
+    if args.suspicious:
+        print("\n=== ACTIVITATE SUSPECTA ===")
+        detect_bruteforce(entries)
+        detect_404_scans(entries)
+        detect_sensitive_path_access(entries)
+
+    if args.report == "html":
+        run_report(args.logfile, args.output)
+
+    print("\n✔ Analiza finalizata.")
+
+
 if __name__ == "__main__":
     main()
-
 
 
 
