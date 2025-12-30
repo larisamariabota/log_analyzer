@@ -5,10 +5,11 @@ def normalize_timestamp(ts):
     """Întoarce datetime din orice format suportat."""
     if isinstance(ts, datetime):
         return ts
-
     if not isinstance(ts, str):
-        return None
 
+    ts = ts.strip().strip("[]") 
+ 
+ 
     formats = [
         "%Y-%m-%dT%H:%M:%S",        # JSON format
         "%Y-%m-%d %H:%M:%S",        # custom
@@ -29,7 +30,7 @@ def normalize_timestamp(ts):
 
 def load_file(path):
     entries = []
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, "r", encoding="utf-8") as f: # encoding utf-8 in caz de caractere speciale 
         for line in f:
             line = line.strip()
             if not line:
@@ -42,10 +43,6 @@ def load_file(path):
             # Convertim timestamp-ul în datetime
             ts = parsed.get("timestamp")
             parsed["timestamp_dt"] = normalize_timestamp(ts)
-
-            # dacă timestamp-ul nu poate fi convertit → ignorăm linia
-            if parsed["timestamp_dt"] is None:
-                continue
 
             entries.append(parsed)
 
