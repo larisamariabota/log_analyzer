@@ -6,6 +6,7 @@ def normalize_timestamp(ts):
     if isinstance(ts, datetime):
         return ts
     if not isinstance(ts, str):
+        return None
 
     ts = ts.strip().strip("[]") 
  
