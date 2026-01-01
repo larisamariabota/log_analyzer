@@ -6,6 +6,7 @@ def defectiuni_sistem(entries, min_errors=5, window_seconds=10):
     #min_errors reprezinta pragul minim de erori pt a considera o defectiune
     #window_seconds reprezinta ferestra de timp pt a detectaa o defectiune
     # sortăm după timp
+    entries = [e for e in entries if e.get("timestamp_dt") is not None]
     entries = sorted(entries, key=lambda e: e["timestamp_dt"])
 
     # filtrăm erorile serverului
