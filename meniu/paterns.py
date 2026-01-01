@@ -6,6 +6,9 @@ from datetime import datetime, timedelta
 # -------------------------------------------------------
 
 def detect_bruteforce(entries, fail_limit=10, window_minutes=2):
+         
+         # daca un ip are mai mult de fail_limit incercari esuate de login in window_minutes, acesta este suspect
+
     login_attempts = defaultdict(list)  # ip -> lista timestamps
 
     for entry in entries:
@@ -22,21 +25,21 @@ def detect_bruteforce(entries, fail_limit=10, window_minutes=2):
         if not isinstance(path, str):
             continue
 
-        # detectam incercari esuate de login
+        # detectam incercari esuate de login, punem in dictionarul login_attempts doar ip si timestamp care indeplinesc conditiile
         if method == "POST" and "/login" in path.lower() and status in (401, 403):
             login_attempts[ip].append(ts)
 
     results = []
 
     for ip, timestamps in login_attempts.items():
-        timestamps = sorted(timestamps)
-
+        timestamps = sorted(timestamps) # sortam timpii pentru ai masura cronologic, pt fiecare ip
+          
         for i in range(len(timestamps)):
             start = timestamps[i]
             end = start + timedelta(minutes=window_minutes)
-            count = sum(1 for t in timestamps if start <= t <= end)
-
-            if count >= fail_limit:
+            count = sum(1 for t in timestamps if start <= t <= end) # count numacate erori au avut loc in 2 min
+            
+            if count >= fail_limit: # daca nr de errori a atins limita, il trimitem in result
                 results.append({
                     "type": "Brute-force login",
                     "ip": ip,
@@ -48,13 +51,25 @@ def detect_bruteforce(entries, fail_limit=10, window_minutes=2):
 
     return results
 
+def print_bruteforce_reports(results):
+    if not results:
+        print("In doua minute nu s-a atins limita de zece incercari esuate de login, nu e suspect")
+        return
+    print("\n ----------In doua minute s-a atins limita de zece incercari de login esuate, e suspect --------\n")
+    for r in results:
+        print(f"IP:{r['ip']},Interval:{r['interval']},Numar incercari:{r['count']}\n")
+        print("Recomandari:")
+        print("  -Blocheaza IP-ul")
+        print("  -Verifica autentificarile")
+
 
 # -------------------------------------------------------
 # DETECTARE SPAM 404 (SCANARI)
 # -------------------------------------------------------
 
-def detect_404_scans(entries, limit_404=30, window_minutes=2):
-    errors = defaultdict(list)
+#eror 404 inseamna ca resursa nu a fost gasita de server
+def detect_404_scans(entries, limit_404=10, window_minutes=2):
+    errors = defaultdict(list)   # se creaza un nou dictionar cu liste goale
 
     for entry in entries:
         ip = entry.get("ip")
@@ -65,13 +80,7 @@ def detect_404_scans(entries, limit_404=30, window_minutes=2):
         if not ip or not ts or status != 404:
             continue
 
-        # convertim la datetime dacă este string
-        if isinstance(ts, str):
-            try:
-                ts = datetime.fromisoformat(ts)
-            except:
-                continue
-
+       
         errors[ip].append(ts)
 
     results = []
@@ -117,7 +126,7 @@ SENSITIVE_PATHS = [
 ]
 
 def detect_sensitive_path_access(entries, limit=5):
-    access = defaultdict(int)
+    access = defaultdict(int)    # defaultdict este pentru a initializa automat valorile la 0
     access_timestamps = defaultdict(list)
 
     for entry in entries:
@@ -153,28 +162,4 @@ def detect_sensitive_path_access(entries, limit=5):
     return results
 
 
-# -------------------------------------------------------
-# PRINT REPORT
-# -------------------------------------------------------
-
-def print_suspicious_report(results):
-    if not results:
-        print("Nu s-au detectat pattern-uri suspecte.")
-        return
-
-    print("\n=========== SUSPICIOUS ACTIVITY REPORT ===========\n")
-
-    for r in results:
-        print("--------------------------------------")
-        print(r["message"])
-        print(f"Tip: {r['type']}")
-        print(f"Interval: {r['interval']}")
-        print(f"Numar cereri: {r['count']}")
-        print("\nRecomandari:")
-        print(" - Blocheaza IP-ul")
-        print(" - Aplica rate-limit")
-        print(" - Verifica autentificarile si endpoint-urile")
-        print(" - Logheaza cererile suspecte")
-        print(" - Notifica administratorul")
-        print("--------------------------------------\n")
 

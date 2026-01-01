@@ -12,11 +12,14 @@ from raport.creaza_raport import run_report
 from meniu.statistici import status
 from meniu.top_ip import top_ip
 from meniu.spike_error import detect_error_spikes
+
 from meniu.paterns import (
     detect_bruteforce,  
     detect_404_scans,
-    detect_sensitive_path_access
+    detect_sensitive_path_access,
+    print_suspicious_report,
 )
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -51,9 +54,10 @@ def main():
     if args.top_ips: top_ip(entries)
     
     if args.spikes: detect_error_spikes(entries)
-
+    
+    result_bruteforce=detect_bruteforce(entries)
     if args.suspicious:
-        detect_bruteforce(entries)
+        print_suspicious_report(result_bruteforce)
         detect_404_scans(entries)
         detect_sensitive_path_access(entries)
 
