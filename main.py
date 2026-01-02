@@ -11,7 +11,7 @@ from raport.creaza_raport import run_report
 
 from meniu.statistici import status
 from meniu.top_ip import top_ip
-from meniu.spike_error import detect_error_spikes
+from meniu.spike_error import detect_error_spikes, print_spike_errors
 from meniu.multi_task import filter_entries, print_filter
 
 
@@ -56,10 +56,10 @@ def main():
     if args.top_ips:top_ip(entries)
 
     if args.stats: status(entries)
-
-    if args.top_ips: top_ip(entries)
     
-    if args.spikes: detect_error_spikes(entries)
+    spikes=detect_error_spikes(entries)
+    if args.spikes: print_spike_errors(spikes)
+      
     
     # initializam listele pentru rezultatele detectiilor
     result_bruteforce=detect_bruteforce(entries)

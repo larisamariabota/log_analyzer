@@ -33,7 +33,7 @@ def load_file(path):
     entries = []
     with open(path, "r", encoding="utf-8") as f: # encoding utf-8 in caz de caractere speciale 
         for line in f:
-            line = line.strip()
+
             if not line:
                 continue
 
