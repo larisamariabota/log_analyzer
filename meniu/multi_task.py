@@ -54,7 +54,12 @@ def print_filter(entries, limit=30):
         # taie mesajul dacă e prea lung (să rămână clean)
         msg = str(msg)
        
-
+        # standardizam tipuruile in string-uri
+        ts = str(ts)
+        ip = str(ip)
+        lvl = str(lvl)
+        status = "-" if status is None else str(status)
+        msg = str(msg)
         print(f"[{ts}] {lvl:<5} {status:<3} IP={ip:<15} PATH={path} MSG={msg}")
 
         shown += 1
