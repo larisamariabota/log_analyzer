@@ -10,7 +10,7 @@ from raport.creaza_raport import run_report
 
 
 from meniu.statistici import status
-from meniu.top_ip import top_ip
+from meniu.top_ip import top_ip,top_dangerous_ip
 from meniu.spike_error import detect_error_spikes, print_spike_errors
 from meniu.multi_task import filter_entries, print_filter
 
@@ -33,7 +33,8 @@ def main():
     # 1. DEFINIREA TUTUROR ARGUMENTELOR
     parser.add_argument("logfile", help="Fisierul de log (apache, nginx, syslog, custom)")
     parser.add_argument("--stats", action="store_true", help="Afiseaza statistici generale")
-    parser.add_argument("--top_ips", type=int, metavar="N", help="Afiseaza top IP-uri")
+    parser.add_argument("--dangerous",action="store_true", help="Afiseaza top 10 IP-uri periculoase")
+    parser.add_argument("--top_ips", action="store_true", help="Afiseaza top 10 IP-uri")
     parser.add_argument("--spikes", action="store_true", help="Detecteaza spike-uri de erori")
     parser.add_argument("--suspicious", action="store_true", help="Detecteaza activitate suspecta")
     parser.add_argument("--filter", help="Filtreaza dupa text sau level (ex: ERROR, TypeError)")
@@ -53,24 +54,28 @@ def main():
     print(f"\n✔ Log incarcat: {args.logfile}")
     print(f"✔ Total inregistrari: {len(entries)}\n")
     
-    if args.top_ips:top_ip(entries)
-
+    if args.top_ips:
+       if args.dangerous: top_dangerous_ip(entries)
+       else: top_ip(entries)
+      
     if args.stats: status(entries)
     
-    spikes=detect_error_spikes(entries)
-    if args.spikes: print_spike_errors(spikes)
+   
+    if args.spikes:
+       spikes=detect_error_spikes(entries)
+       print_spike_errors(spikes)
       
-    
-    # initializam listele pentru rezultatele detectiilor
-    result_bruteforce=detect_bruteforce(entries)
-    result_404=detect_404_scans(entries)
-    sensitive_path=detect_sensitive_path_access(entries)
 
 
     if args.suspicious:
-        print_bruteforce_reports(result_bruteforce),
-        print_404_scan_reports(result_404),
-        print_sensitive_path(sensitive_path)
+        # initializam listele pentru rezultatele detectiilor
+      result_bruteforce=detect_bruteforce(entries)
+      result_404=detect_404_scans(entries)
+      sensitive_path=detect_sensitive_path_access(entries)
+
+      print_bruteforce_reports(result_bruteforce),
+      print_404_scan_reports(result_404),
+      print_sensitive_path(sensitive_path)
 
     if args.report == "html": run_report(args.logfile, args.output)
 
@@ -87,6 +92,7 @@ def main():
      
 if __name__ == "__main__":
     main()
+
 
 
 
