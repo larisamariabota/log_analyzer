@@ -13,6 +13,7 @@ from meniu.statistici import status
 from meniu.top_ip import top_ip,top_dangerous_ip
 from meniu.spike_error import detect_error_spikes, print_spike_errors
 from meniu.multi_task import filter_entries, print_filter
+from meniu.spike_abuse import detect_all_spikes, print_alert_table
 
 
 from meniu.paterns import (
@@ -31,6 +32,7 @@ def main():
     )
 
     # 1. DEFINIREA TUTUROR ARGUMENTELOR
+       # prima pozitie =comanda din terminal ,action= store_true//daca e comanda, atuci variabila e true, help= descrie e face comanda, e obtional
     parser.add_argument("logfile", help="Fisierul de log (apache, nginx, syslog, custom)")
     parser.add_argument("--stats", action="store_true", help="Afiseaza statistici generale")
     parser.add_argument("--dangerous",action="store_true", help="Afiseaza top 10 IP-uri periculoase")
@@ -39,6 +41,7 @@ def main():
     parser.add_argument("--suspicious", action="store_true", help="Detecteaza activitate suspecta")
     parser.add_argument("--filter", help="Filtreaza dupa text sau level (ex: ERROR, TypeError)")
     parser.add_argument("--date", help="Filtreaza dupa data (YYYY-MM-DD)")
+    parser.add_argument("--alert", action="store_true", help="Afiseaza alertele de securitate detectate")
     parser.add_argument("--report", choices=["html"], help="Genereaza raport (html)")
     parser.add_argument("--output", default="raport_complet.html", help="Fisierul HTML generat")
 
@@ -65,6 +68,9 @@ def main():
        spikes=detect_error_spikes(entries)
        print_spike_errors(spikes)
       
+    if args.alert:
+        spike=detect_all_spikes(entries)
+        print_alert_table(spike)  
 
 
     if args.suspicious:

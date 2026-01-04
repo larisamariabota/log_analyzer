@@ -154,25 +154,44 @@ def detect_all_spikes(entries):
 
 
 # ============================================================
-# 7️ PRINT REPORT (OPȚIONAL)
+# 7️ PRINT REPORT 
 # ============================================================
 
-def print_spike_report(spikes):
+def print_alert_table(spikes):
     if not spikes:
-        print("\n Nu s-au detectat spike-uri.\n")
+        print("\n✅ SISTEM OK — nu s-au detectat alerte.\n")
         return
 
-    print("\n=========== SPIKE REPORT ===========\n")
+    headers = ["TIP", "IP", "COUNT", "DESCRIERE"]
 
+    rows = []
     for s in spikes:
-        print("------------------------------------")
-        print(f"TIP: {s['type']}")
-        print(s["message"])
+        rows.append([
+            s.get("type", "-"),
+            s.get("ip", "-"),
+            str(s.get("count", "-")),
+            s.get("message", "").split("→")[0].strip()[:30]
+        ])
 
-        if "ip" in s:
-            print(f"IP: {s['ip']}")
+    # calcul lățimi coloane
+    widths = [len(h) for h in headers]
+    for r in rows:
+        for i, cell in enumerate(r):
+            widths[i] = max(widths[i], len(cell))
 
-        print(f"Count: {s['count']}")
-        print("------------------------------------\n")
+    def line(ch="="):
+        return "+" + "+".join(ch * (w + 2) for w in widths) + "+"
 
+    def fmt(r):
+        return "|" + "|".join(f" {r[i]:<{widths[i]}} " for i in range(len(r))) + "|"
 
+    print("\n🚨 ALERT REPORT — SPIKES DETECTATE")
+    print(line("="))
+    print(fmt(headers))
+    print(line("="))
+
+    for r in rows:
+        print(fmt(r))
+
+    print(line("="))
+    print()

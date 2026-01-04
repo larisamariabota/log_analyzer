@@ -15,6 +15,8 @@ def filter_entries(entries, text_filter=None, date_filter=None):
             e for e in entries
             if f in str(e.get("message", "")).lower()
             or f == str(e.get("level", "")).lower()
+            or f==str(e.get("ip","")).lower()
+            or f==str(e.get("method","")).lower()
         ]
 
     # Filtrare dupa data
