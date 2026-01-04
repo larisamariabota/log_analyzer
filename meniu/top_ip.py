@@ -10,6 +10,19 @@ def top_ip(entries):
     # sortăm descrescător după cereri
     sorted_ips = sorted(ip_count.items(), key=lambda x: x[1], reverse=True)
     top_10 = sorted_ips[:10]
+        # === GRAFIC ASCII: Top 10 IP-uri (după cereri) ===
+    rows = []
+    for ip, count in top_10:
+        rows.append({
+            "ip": ip,
+            "requests": count
+        })
+
+    print_ascii_bars(
+        rows,
+        "GRAFIC — Top 10 IP-uri după numărul de cereri",
+        key="requests"
+    )
 
     total_logs = len(entries)
 
@@ -89,8 +102,14 @@ def top_dangerous_ip(entries):
     # sortare după scor
     sorted_ips = sorted(stats.items(), key=lambda x: x[1]["score"], reverse=True)
     top_10 = sorted_ips[:10]
+        # === GRAFIC ASCII: TOP 10 IP-uri periculoase (după scor) ===
+    rows = []
+    for ip, data in top_10:
+        rows.append({"ip": ip, "score": data["score"]})
 
-    print(" Top 10 IP-uri periculoase\n" + "="*40)
+    print_ascii_bars(rows, "GRAFIC — Top 10 IP-uri periculoase (scor risc)", key="score")
+
+    print(" Datele despre aceste IP-uri\n" + "="*40)
 
     for i, (ip, data) in enumerate(top_10, start=1):
 
@@ -130,3 +149,20 @@ def top_dangerous_ip(entries):
         print(f" Status: {status}\n")
 
     return top_10
+# functiile care deseanaza grasfice ascii
+ #  functia _bar returneaza un string cu bare pt 
+def _bar(value, max_value, width=24, ch="█"):
+    if max_value <= 0:
+        return ""
+    n = int((value / max_value) * width)
+    return ch * n
+
+def print_ascii_bars(rows, title, key="score", width=28):
+    max_v = max(r.get(key, 0) for r in rows) if rows else 0  # max_v este  valoarea maxima pt fiecare ip 
+    print("\n" + title)
+    print("-" * 60)
+    for r in rows:
+        ip = r.get("ip", "-")
+        v = r.get(key, 0)
+        print(f"{ip:<15} | {_bar(v, max_v, width=width):<{width}} {v} \n")
+    print("-" * 60 + "\n")
