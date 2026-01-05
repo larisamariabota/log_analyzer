@@ -8,7 +8,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 from conversion.loader import load_file
 from raport.creaza_raport import run_report
 
-
+from meniu.bashboard_live import watch_log_live 
 from meniu.statistici import status
 from meniu.top_ip import top_ip,top_dangerous_ip
 from meniu.spike_error import detect_error_spikes, print_spike_errors
@@ -25,6 +25,14 @@ from meniu.paterns import (
     print_sensitive_path
 )
 
+from output.output_ips import write_top_dangerous_ip_to_file, write_top_ip_to_file
+from output.output_alert import write_alert_table_to_file
+from output.output_spike import write_spike_to_file
+from output.output_status import write_status_to_file
+from output.output_filter_data import write_filter_to_file
+from output.output_suspicious import write_bruteforce_reports_to_file,write_404_scan_reports_to_file,write_sensitive_path_to_file
+
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -33,6 +41,8 @@ def main():
 
     # 1. DEFINIREA TUTUROR ARGUMENTELOR
        # prima pozitie =comanda din terminal ,action= store_true//daca e comanda, atuci variabila e true, help= descrie e face comanda, e obtional
+    parser.add_argument("--watch", action="store_true", help="Porneste dashboard live (citeste doar liniile noi)")
+    parser.add_argument("--refresh", type=int, default=2, help="Refresh dashboard in secunde (default 2)")
     parser.add_argument("logfile", help="Fisierul de log (apache, nginx, syslog, custom)")
     parser.add_argument("--stats", action="store_true", help="Afiseaza statistici generale")
     parser.add_argument("--dangerous",action="store_true", help="Afiseaza top 10 IP-uri periculoase")
@@ -46,7 +56,8 @@ def main():
     parser.add_argument("--output", default="raport_complet.html", help="Fisierul HTML generat")
 
     # 2. O SINGURĂ CITIRE A ARGUMENTELOR
-    args = parser.parse_args()
+    #parser.parse_args() //parseaza argumentele din terminal si le transfornma in variabile python
+    args = parser.parse_args()   #args devine un obiect cu toate argumentele ca atribute
 
     # 3. ÎNCĂRCAREA DATELOR (O singură dată, după ce știm fișierul)
     entries = load_file(args.logfile)
@@ -58,20 +69,29 @@ def main():
     print(f"✔ Total inregistrari: {len(entries)}\n")
     
     if args.top_ips:
-       if args.dangerous: top_dangerous_ip(entries)
-       else: top_ip(entries)
-      
-    if args.stats: status(entries)
-    
+       if args.dangerous: 
+          top_dangerous_ip(entries)
+          write_top_dangerous_ip_to_file(entries)
+       else: 
+          top_ip(entries)
+          write_top_ip_to_file(entries)
+
+
+    if args.stats:
+       status(entries)
+       write_status_to_file(entries)
    
+
     if args.spikes:
        spikes=detect_error_spikes(entries)
        print_spike_errors(spikes)
+       write_spike_to_file(spikes)
       
+
     if args.alert:
         spike=detect_all_spikes(entries)
         print_alert_table(spike)  
-
+        write_alert_table_to_file(spike)
 
     if args.suspicious:
         # initializam listele pentru rezultatele detectiilor
@@ -81,9 +101,15 @@ def main():
 
       print_bruteforce_reports(result_bruteforce),
       print_404_scan_reports(result_404),
-      print_sensitive_path(sensitive_path)
+      print_sensitive_path(sensitive_path),
+      write_bruteforce_reports_to_file(result_bruteforce),
+      write_404_scan_reports_to_file(result_404),
+      write_sensitive_path_to_file(sensitive_path)
+
 
     if args.report == "html": run_report(args.logfile, args.output)
+ 
+
 
     filtered_entries = entries
 
@@ -95,7 +121,20 @@ def main():
             date_filter=args.date
         )
      print_filter(filtered_entries)
-     
+     write_filter_to_file(filtered_entries)
+
+     if args.watch:
+       watch_log_live(
+        args.logfile,
+        refresh=args.refresh,
+        stats=args.stats,
+        top=args.top_ips,
+        dangerous=args.dangerous,
+        alert=args.alert,
+        suspicious=args.suspicios
+    )
+    return
+
 if __name__ == "__main__":
     main()
 

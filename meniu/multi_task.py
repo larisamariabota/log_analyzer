@@ -72,3 +72,6 @@ def print_filter(entries, limit=30):
         print(f"... și încă {len(entries) - limit} rezultate (mărește limit dacă vrei)")
     print("-" * 80 + "\n")
 
+
+
+

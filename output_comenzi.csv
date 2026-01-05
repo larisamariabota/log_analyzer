@@ -1,0 +1,83 @@
+
+GRAFIC — Top 10 IP-uri periculoase (scor risc)
+------------------------------------------------------------
+192.168.0.1     | ████████████████████████████ 16
+192.168.0.7     | ████████████████████████████ 16
+192.168.0.2     | ██████████████████████████   15
+192.168.0.3     | ██████████████████████       13
+192.168.0.11    | █████████████████████        12
+192.168.0.6     | ███████████████████          11
+192.168.0.9     | ███████████████████          11
+192.168.0.18    | ███████████████████          11
+192.168.0.5     | ███████████████████          11
+192.168.0.12    | ███████████████████          11
+------------------------------------------------------------
+
+Datele despre aceste IP-uri
+========================================
+
+1. 192.168.0.1 (20 cereri)
+ • 16 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 23:30:13
+ Status: BLOCAT imediat
+
+2. 192.168.0.7 (20 cereri)
+ • 16 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 20:06:36
+ Status: BLOCAT imediat
+
+3. 192.168.0.2 (23 cereri)
+ • 15 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 23:54:53
+ Status: BLOCAT imediat
+
+4. 192.168.0.3 (15 cereri)
+ • 13 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 23:45:06
+ Status: BLOCAT imediat
+
+5. 192.168.0.11 (19 cereri)
+ • 12 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 22:32:24
+ Status: BLOCAT imediat
+
+6. 192.168.0.6 (15 cereri)
+ • 11 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 22:37:41
+ Status: BLOCAT imediat
+
+7. 192.168.0.9 (12 cereri)
+ • 11 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 22:33:19
+ Status: BLOCAT imediat
+
+8. 192.168.0.18 (18 cereri)
+ • 11 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 22:03:08
+ Status: BLOCAT imediat
+
+9. 192.168.0.5 (17 cereri)
+ • 11 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 20:56:01
+ Status: BLOCAT imediat
+
+10. 192.168.0.12 (14 cereri)
+ • 11 mesaje ERROR/WARN
+ • Ultima activitate: 2025-01-15 22:01:03
+ Status: BLOCAT imediat
+
+
+🚨 ALERT REPORT — SPIKES DETECTATE
++======================+====+=======+================================+
+| TIP                  | IP | COUNT | DESCRIERE                      |
++======================+====+=======+================================+
+| Temporal Error Spike | -  | 3     | 3 erori într-o fereastră de 10 |
+| Temporal Error Spike | -  | 4     | 4 erori într-o fereastră de 10 |
+| Temporal Error Spike | -  | 5     | 5 erori într-o fereastră de 10 |
+| Temporal Error Spike | -  | 6     | 6 erori într-o fereastră de 10 |
+| Temporal Error Spike | -  | 7     | 7 erori într-o fereastră de 10 |
+| Temporal Error Spike | -  | 8     | 8 erori într-o fereastră de 10 |
+| Temporal Error Spike | -  | 9     | 9 erori într-o fereastră de 10 |
+| Temporal Error Spike | -  | 10    | 10 erori într-o fereastră de 1 |
++======================+====+=======+================================+
+
