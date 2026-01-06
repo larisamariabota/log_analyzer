@@ -41,9 +41,7 @@
 ```bash
 python main.py test/apache.log --report html --output raport.html
 
-
 python main.py test/nginx_access.log --spikes
-
 
 python main.py test/apache.log --stats
 
@@ -51,16 +49,14 @@ python main.py test/custom.log --date 2025-01-15
 
 python main.py test/nginx_error.log  --top_ips --dangerous
 
-
 python main.py test/nginx_error.log --filter ERROR
 
 python main.py test/custom.log --alert
 
-
 python main.py test/syslog.log --top_ips
 
 python main.py test/json.log --suspicious
-
+```
 ##  Screenshots din terminal
 
 Pentru a demonstra funcționarea aplicației, fiecare comandă prezentată mai sus
