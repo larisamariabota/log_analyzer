@@ -1,83 +1,103 @@
+Rezultate după filtrare: 337 înregistrări
+--------------------------------------------------------------------------------
+[2025-01-15 11:53:28] ERROR 400 IP=192.168.0.15    PATH=/profile MSG=Timeout
+[2025-01-15 10:55:28] INFO  403 IP=192.168.0.14    PATH=/search?q=test MSG=OK
+[2025-01-15 05:24:21] WARN  503 IP=192.168.0.17    PATH=/api/search MSG=Deleted
+[2025-01-15 07:17:36] WARN  503 IP=192.168.0.10    PATH=/login MSG=Not found
+[2025-01-15 11:06:21] WARN  302 IP=192.168.0.4     PATH=/profile MSG=Deleted
+[2025-01-15 08:08:09] ERROR 400 IP=192.168.0.9     PATH=/checkout MSG=Update
+[2025-01-15 05:54:58] INFO  502 IP=192.168.0.5     PATH=/login MSG=Failed
+[2025-01-15 08:31:33] INFO  502 IP=192.168.0.13    PATH=/cart MSG=Not found
+[2025-01-15 02:04:19] INFO  503 IP=192.168.0.18    PATH=/cart MSG=Deleted
+[2025-01-15 14:26:50] WARN  500 IP=192.168.0.14    PATH=/dashboard MSG=Not found
+[2025-01-15 09:19:20] ERROR 302 IP=192.168.0.18    PATH=/dashboard MSG=Timeout
+[2025-01-15 05:15:23] INFO  500 IP=192.168.0.19    PATH=/product/123 MSG=Access denied
+[2025-01-15 19:52:05] ERROR 401 IP=192.168.0.16    PATH=/search?q=test MSG=Timeout
+[2025-01-15 21:08:43] INFO  500 IP=192.168.0.18    PATH=/admin MSG=Processing
+[2025-01-15 00:18:35] ERROR 404 IP=192.168.0.4     PATH=/login MSG=Not found
+[2025-01-15 22:10:36] INFO  404 IP=192.168.0.3     PATH=/login MSG=Access denied
+[2025-01-15 20:51:53] WARN  502 IP=192.168.0.19    PATH=/dashboard MSG=OK
+[2025-01-15 21:19:01] INFO  500 IP=192.168.0.18    PATH=/product/123 MSG=Deleted
+[2025-01-15 20:31:16] ERROR 301 IP=192.168.0.10    PATH=/cart MSG=Deleted
+[2025-01-15 20:36:02] ERROR 403 IP=192.168.0.9     PATH=/api/search MSG=Timeout
+[2025-01-15 03:14:11] WARN  401 IP=192.168.0.5     PATH=/api/users MSG=Failed
+[2025-01-15 12:48:11] WARN  200 IP=192.168.0.7     PATH=/register MSG=Deleted
+[2025-01-15 19:20:56] INFO  404 IP=192.168.0.16    PATH=/admin MSG=Failed
+[2025-01-15 01:47:24] ERROR 503 IP=192.168.0.1     PATH=/api/search MSG=Deleted
+[2025-01-15 18:40:38] ERROR 401 IP=192.168.0.7     PATH=/admin MSG=Deleted
+[2025-01-15 10:23:26] ERROR 302 IP=192.168.0.6     PATH=/products MSG=Timeout
+[2025-01-15 02:42:17] ERROR 401 IP=192.168.0.19    PATH=/checkout MSG=Timeout
+[2025-01-15 21:01:01] ERROR 500 IP=192.168.0.18    PATH=/checkout MSG=Deleted
+[2025-01-15 23:16:29] WARN  401 IP=192.168.0.4     PATH=/products MSG=Update
+[2025-01-15 00:42:32] ERROR 403 IP=192.168.0.19    PATH=/dashboard MSG=OK
+... și încă 307 rezultate
+--------------------------------------------------------------------------------
 
 GRAFIC — Top 10 IP-uri periculoase (scor risc)
 ------------------------------------------------------------
-192.168.0.1     | ████████████████████████████ 16
-192.168.0.7     | ████████████████████████████ 16
-192.168.0.2     | ██████████████████████████   15
-192.168.0.3     | ██████████████████████       13
-192.168.0.11    | █████████████████████        12
-192.168.0.6     | ███████████████████          11
-192.168.0.9     | ███████████████████          11
-192.168.0.18    | ███████████████████          11
-192.168.0.5     | ███████████████████          11
-192.168.0.12    | ███████████████████          11
+192.168.1.20    | ████████████████████████████ 7
+192.168.1.30    | ████████████████████         5
+192.168.1.10    | ████████████████             4
+192.168.1.40    | ████████████████             4
+192.168.1.50    | ████████████████             4
+192.168.1.13    | ████████████████             4
+192.168.1.14    | ████████████████             4
+192.168.1.15    | ████████████████             4
+192.168.1.17    | ████████████████             4
+192.168.1.18    | ████████████████             4
 ------------------------------------------------------------
 
 Datele despre aceste IP-uri
 ========================================
 
-1. 192.168.0.1 (20 cereri)
- • 16 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 23:30:13
- Status: BLOCAT imediat
+1. 192.168.1.20 (5 cereri)
+ • 1 încercări /admin (scanare)
+ • 5 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-03 00:17:30
+ Status: ALERTĂ RIDICATĂ
 
-2. 192.168.0.7 (20 cereri)
- • 16 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 20:06:36
- Status: BLOCAT imediat
+2. 192.168.1.30 (5 cereri)
+ • 5 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-03 01:27:30
+ Status: ALERTĂ RIDICATĂ
 
-3. 192.168.0.2 (23 cereri)
- • 15 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 23:54:53
- Status: BLOCAT imediat
+3. 192.168.1.10 (4 cereri)
+ • 4 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-02 23:07:30
+ Status: Monitorizare
 
-4. 192.168.0.3 (15 cereri)
- • 13 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 23:45:06
- Status: BLOCAT imediat
+4. 192.168.1.40 (4 cereri)
+ • 4 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-02 20:47:30
+ Status: Monitorizare
 
-5. 192.168.0.11 (19 cereri)
- • 12 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 22:32:24
- Status: BLOCAT imediat
+5. 192.168.1.50 (4 cereri)
+ • 4 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-02 21:57:30
+ Status: Monitorizare
 
-6. 192.168.0.6 (15 cereri)
- • 11 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 22:37:41
- Status: BLOCAT imediat
+6. 192.168.1.13 (4 cereri)
+ • 4 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-02 23:28:30
+ Status: Monitorizare
 
-7. 192.168.0.9 (12 cereri)
- • 11 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 22:33:19
- Status: BLOCAT imediat
+7. 192.168.1.14 (4 cereri)
+ • 4 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-02 23:35:30
+ Status: Monitorizare
 
-8. 192.168.0.18 (18 cereri)
- • 11 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 22:03:08
- Status: BLOCAT imediat
+8. 192.168.1.15 (4 cereri)
+ • 4 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-02 23:42:30
+ Status: Monitorizare
 
-9. 192.168.0.5 (17 cereri)
- • 11 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 20:56:01
- Status: BLOCAT imediat
+9. 192.168.1.17 (4 cereri)
+ • 4 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-02 23:56:30
+ Status: Monitorizare
 
-10. 192.168.0.12 (14 cereri)
- • 11 mesaje ERROR/WARN
- • Ultima activitate: 2025-01-15 22:01:03
- Status: BLOCAT imediat
-
-
-🚨 ALERT REPORT — SPIKES DETECTATE
-+======================+====+=======+================================+
-| TIP                  | IP | COUNT | DESCRIERE                      |
-+======================+====+=======+================================+
-| Temporal Error Spike | -  | 3     | 3 erori într-o fereastră de 10 |
-| Temporal Error Spike | -  | 4     | 4 erori într-o fereastră de 10 |
-| Temporal Error Spike | -  | 5     | 5 erori într-o fereastră de 10 |
-| Temporal Error Spike | -  | 6     | 6 erori într-o fereastră de 10 |
-| Temporal Error Spike | -  | 7     | 7 erori într-o fereastră de 10 |
-| Temporal Error Spike | -  | 8     | 8 erori într-o fereastră de 10 |
-| Temporal Error Spike | -  | 9     | 9 erori într-o fereastră de 10 |
-| Temporal Error Spike | -  | 10    | 10 erori într-o fereastră de 1 |
-+======================+====+=======+================================+
+10. 192.168.1.18 (4 cereri)
+ • 4 mesaje ERROR/WARN
+ • Ultima activitate: 2026-01-03 00:03:30
+ Status: Monitorizare
 

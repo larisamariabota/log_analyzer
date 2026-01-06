@@ -10,48 +10,42 @@
 
 ## 📌 Funcționalități
 
-### 🔎 Analiză & filtrare
+###  Analiză & filtrare
 - Suport pentru fișiere de log: **Apache / Nginx / Syslog / JSON / Custom**
 - Filtrare după text sau level: `--filter` (ex: `ERROR`, `TypeError`, `timeout`)
 - Filtrare după dată: `--date` (format `YYYY-MM-DD`)
 
-### 📊 Statistici & topuri
+###  Statistici & topuri
 - Statistici generale despre log: `--stats`
 - Top 10 IP-uri (după apariții): `--top_ips`
 - Top 10 IP-uri periculoase (în funcție de reguli/heuristici): `--dangerous`
 
-### 🚨 Detectare anomalii & securitate
+###  Detectare anomalii & securitate
 - Detectare spike-uri de erori într-o fereastră de timp: `--spikes`
 - Detectare activitate suspectă: `--suspicious`
 - Afișare alerte de securitate detectate: `--alert`
 
-### 🖥️ Dashboard live (monitorizare în timp real)
+###  Dashboard live (monitorizare în timp real)
 - Pornește dashboard live (citește doar liniile noi din log): `--watch`
 - Setează intervalul de refresh (secunde): `--refresh` (default: `2`)
 
-### 📄 Raportare
+###  Raportare
 - Generare raport HTML complet: `--report html`
 - Setarea fișierului de output: `--output` (default: `raport_complet.html`)
 
 
 
-### Opțiuni disponibile
+### Exemple de comenzi disponibile
 
-- `logfile` (pozitional): Fișierul de log (apache, nginx, syslog, custom)
-- `--stats`: Afișează statistici generale
-- `--top_ips`: Afișează top 10 IP-uri
-- `--dangerous`: Afișează top 10 IP-uri periculoase
-- `--spikes`: Detectează spike-uri de erori
-- `--suspicious`: Detectează activitate suspectă
-- `--alert`: Afișează alertele de securitate detectate
-- `--filter <text>`: Filtrează după text sau level (ex: `ERROR`, `TypeError`)
-- `--date <YYYY-MM-DD>`: Filtrează după dată
-- `--report html`: Generează raport HTML
-- `--output <file.html>`: Numele fișierului HTML generat (default: `raport_complet.html`)
-- `--watch`: Pornește dashboard live (citește doar liniile noi)
-- `--refresh <secunde>`: Refresh dashboard (default: `2`)
-## ✅ Combinări uzuale
 
-### Monitorizare live cu refresh mai rapid
 ```bash
-python main.py test_logs/nginx_error.log --watch --refresh 1
+python main.py test/apache.log --report html --output raport.html
+python main.py test/nginx_access.log --spike
+python main.py test/apache.log --stats
+python main.py test/custom.log --date 2025-01-15
+python main.py test/nginx_error.log  --top_ips --dangerous
+python main.py test/nginx_error.log --filter ERROR
+python main.py test/custom.log --alert
+python main.py test/syslog.log --top_ips
+python main.py test/json.log --suspicious
+
