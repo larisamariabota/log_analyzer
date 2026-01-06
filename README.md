@@ -35,39 +35,18 @@
 
 
 ### 🌐 Server web (vizualizare raport HTML)
+Aceasta este funcționalitatea principală a aplicației, care generează un raport
+HTML complet cu statistici, top IP-uri, anomalii și alerte de securitate.
+
 - Pornește serverul web local: `--serve`
 - Afișează link pentru raportul HTML în browser
 - Necesită: `--report html`
 -se opreste cu Crt-C
 ```bash
-docker run --rm -p 8003:8000 -v "${PWD}:/app" -v "${PWD}:/out" log__analyzer \
+docker run --rm -p 8003:8000 -v "${PWD}:/app" -v "${PWD}:/out" log_analyzer \
 python /app/main.py test/apache.log --report html --output /out/raport.html --serve
 ```
 
-
-
-### Exemple de comenzi disponibile
-
-
-```bash
-python main.py test/apache.log --report html --output raport.html
-
-python main.py test/nginx_access.log --spikes
-
-python main.py test/apache.log --stats
-
-python main.py test/custom.log --date 2025-01-15
-
-python main.py test/nginx_error.log  --top_ips --dangerous
-
-python main.py test/nginx_error.log --filter ERROR
-
-python main.py test/custom.log --alert
-
-python main.py test/syslog.log --top_ips
-
-python main.py test/json.log --suspicious
-```
 
 ## Exemplu de RAPORT html 
 
@@ -78,7 +57,19 @@ python main.py test/json.log --suspicious
 ![  ](terminal_screen/r4.png)
 ![  ](terminal_screen/r5.png)
 
+## Exemple de rulare 
+```bash
+python main.py test/apache.log --report html --output raport.html
+python main.py test/nginx_access.log --spikes
+python main.py test/apache.log --stats
+python main.py test/custom.log --date 2025-01-15
+python main.py test/nginx_error.log --top_ips --dangerous
+python main.py test/nginx_error.log --filter ERROR
+python main.py test/custom.log --alert
+python main.py test/syslog.log --top_ips
+python main.py test/json.log --suspicious
 
+```
 ##  Screenshots din terminal
 
 Pentru a demonstra funcționarea aplicației, fiecare comandă prezentată mai sus
@@ -90,11 +81,43 @@ Toate aceste capturi sunt disponibile în folderul: `terminal_screen/`
 ## Fisierul output_comenzi.csv
 Rezultatele comenzilor sunt salvate și în `output_comenzi.csv`.
 
-### ⭐ Generare raport HTML (funcționalitate principală)
-
-Aceasta este funcționalitatea principală a aplicației, care generează un raport
-HTML complet cu statistici, top IP-uri, anomalii și alerte de securitate.
-
+## Structura proiectului
 ```bash
-python main.py test/apache.log --report html --output raport.html
+project/
+├── main.py              # entry point CLI
+├── conversion/          # parsare & normalizare loguri
+│   ├── loader.py
+│   └── detector.py
+├── raport/              # generare raport HTML
+│   └── creaza_raport.py
+├── test/                # fișiere log de test
+├── terminal_screen/     # screenshots din terminal
+├── output_comenzi.csv   # rezultate comenzi
+├── Dockerfile
+├── requirements.txt
+└── README.md
 ```
+
+
+
+## Tehnologii folosite
+  - Limbaj: Python 3.10+
+   - Biblioteci:
+        - re – parsarea liniilor de log folosind expresii regulate
+        - datetime – procesarea și filtrarea datelor și orelor din loguri
+        - os – lucrul cu fișiere și căi de sistem
+        - time – controlul intervalului de refresh pentru monitorizarea live
+        - collections.Counter – calcularea statisticilor și topurilor (IP-uri, erori)
+        - webbrowser – deschiderea automată a raportului HTML în browser
+        - html – escape pentru caractere speciale în raportul HTML
+        - argparse – gestionarea argumentelor din linia de comandă (CLI)
+        - sys – configurarea encoding-ului și output-ului în terminal
+        - http.server – rularea unui server web local pentru raport
+         - socketserver – gestionarea conexiunilor de rețea ale serverului web
+
+
+## Instalare 
+git clone https://github.com/larisamariabota/log-analyzer.git
+cd log-analyzer
+pip install -r requirements.txt
+
