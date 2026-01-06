@@ -76,6 +76,9 @@ Pentru a demonstra funcționarea aplicației, fiecare comandă prezentată mai s
 a fost rulată în terminal, iar output-ul rezultat a fost capturat sub formă
 de screenshot.
 Toate aceste capturi sunt disponibile în folderul: `terminal_screen/`
+![python main.py test/custom.log --alert  ](terminal_screen/alert.png)
+![python main.py test/custom.log --date 2025-01-15  ](terminal_screen/terminal_screen/date_2025-01-15.png)
+![ python main.py test/nginx_error.log --top_ips --dangerous ](terminal_screen/ips_dangerous.png)
 
 
 ## Fisierul output_comenzi.csv
