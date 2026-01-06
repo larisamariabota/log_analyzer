@@ -40,12 +40,28 @@
 
 ```bash
 python main.py test/apache.log --report html --output raport.html
+
+```bash
 python main.py test/nginx_access.log --spike
+
+```bash
 python main.py test/apache.log --stats
+
+```bash
 python main.py test/custom.log --date 2025-01-15
+
+```bash
 python main.py test/nginx_error.log  --top_ips --dangerous
+
+```bash
 python main.py test/nginx_error.log --filter ERROR
+
+```bash
 python main.py test/custom.log --alert
+
+```bash
 python main.py test/syslog.log --top_ips
+
+```bash
 python main.py test/json.log --suspicious
 
