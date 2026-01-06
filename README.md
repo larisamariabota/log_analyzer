@@ -41,27 +41,34 @@
 ```bash
 python main.py test/apache.log --report html --output raport.html
 
-```bash
-python main.py test/nginx_access.log --spike
 
-```bash
+python main.py test/nginx_access.log --spikes
+
+
 python main.py test/apache.log --stats
 
-```bash
 python main.py test/custom.log --date 2025-01-15
 
-```bash
 python main.py test/nginx_error.log  --top_ips --dangerous
 
-```bash
+
 python main.py test/nginx_error.log --filter ERROR
 
-```bash
 python main.py test/custom.log --alert
 
-```bash
+
 python main.py test/syslog.log --top_ips
 
-```bash
 python main.py test/json.log --suspicious
+
+##  Screenshots din terminal
+
+Pentru a demonstra funcționarea aplicației, fiecare comandă prezentată mai sus
+a fost rulată în terminal, iar output-ul rezultat a fost capturat sub formă
+de screenshot.
+Toate aceste capturi sunt disponibile în folderul: `terminal_screen/`
+
+
+## Fisierul output_omenzi.csv
+Rezultatele comenzilor sunt salvate și în `output_comenzi.csv`.
 

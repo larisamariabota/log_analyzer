@@ -101,3 +101,15 @@ Datele despre aceste IP-uri
  • Ultima activitate: 2026-01-03 00:03:30
  Status: Monitorizare
 
+
+🚨 ALERT REPORT — SPIKES DETECTATE
++======================+==============+=======+================================+
+| TIP                  | IP           | COUNT | DESCRIERE                      |
++======================+==============+=======+================================+
+| Traffic Spike        | 192.168.0.10 | 25    | IP 192.168.0.10 are 25 cereri  |
+| Error Spike          | 192.168.0.10 | 11    | IP 192.168.0.10 are 11 erori   |
+| Error Spike          | 192.168.1.77 | 24    | IP 192.168.1.77 are 24 erori   |
+| 404 Spike            | 192.168.1.77 | 20    | IP 192.168.1.77 a generat 20 e |
+| Sensitive Path Spike | 192.168.1.99 | 3     | IP 192.168.1.99 a accesat 3 ru |
++======================+==============+=======+================================+
+
