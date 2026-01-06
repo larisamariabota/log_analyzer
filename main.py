@@ -54,6 +54,7 @@ def main():
     parser.add_argument("--alert", action="store_true", help="Afiseaza alertele de securitate detectate")
     parser.add_argument("--report", choices=["html"], help="Genereaza raport (html)")
     parser.add_argument("--output", default="raport_complet.html", help="Fisierul HTML generat")
+    parser.add_argument("--serve", action="store_true", help="Porneste un link in browser pentru raport")
 
     # 2. O SINGURĂ CITIRE A ARGUMENTELOR
     #parser.parse_args() //parseaza argumentele din terminal si le transfornma in variabile python
@@ -107,8 +108,22 @@ def main():
       write_sensitive_path_to_file(sensitive_path)
 
 
-    if args.report == "html": run_report(args.logfile, args.output)
- 
+    if args.report == "html":
+      run_report(args.logfile, args.output)
+      print(f"✔ Raport HTML generat cu succes: {args.output}")
+
+    if args.serve:
+        import http.server, socketserver, os
+
+        port = 8000
+        os.chdir(os.path.dirname(args.output) or ".")
+        print(f"🌐 Link: http://localhost:{port}/{os.path.basename(args.output)}")
+
+        with socketserver.TCPServer(("0.0.0.0", port), http.server.SimpleHTTPRequestHandler) as httpd:
+            httpd.serve_forever()
+
+
+     
 
 
     filtered_entries = entries
@@ -131,7 +146,7 @@ def main():
         top=args.top_ips,
         dangerous=args.dangerous,
         alert=args.alert,
-        suspicious=args.suspicios
+        suspicious=args.suspiciuos
     )
     return
 

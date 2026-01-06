@@ -65,6 +65,14 @@ de screenshot.
 Toate aceste capturi sunt disponibile în folderul: `terminal_screen/`
 
 
-## Fisierul output_omenzi.csv
+## Fisierul output_comenzi.csv
 Rezultatele comenzilor sunt salvate și în `output_comenzi.csv`.
 
+### ⭐ Generare raport HTML (funcționalitate principală)
+
+Aceasta este funcționalitatea principală a aplicației, care generează un raport
+HTML complet cu statistici, top IP-uri, anomalii și alerte de securitate.
+
+```bash
+python main.py test/apache.log --report html --output raport.html
+```
