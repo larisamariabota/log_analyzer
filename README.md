@@ -34,6 +34,17 @@
 - Setarea fișierului de output: `--output` (default: `raport_complet.html`)
 
 
+### 🌐 Server web (vizualizare raport HTML)
+- Pornește serverul web local: `--serve`
+- Afișează link pentru raportul HTML în browser
+- Necesită: `--report html`
+-se opreste cu Crt-C
+```bash
+docker run --rm -p 8003:8000 -v "${PWD}:/app" -v "${PWD}:/out" log__analyzer \
+python /app/main.py test/apache.log --report html --output /out/raport.html --serve
+```
+
+
 
 ### Exemple de comenzi disponibile
 
@@ -57,6 +68,17 @@ python main.py test/syslog.log --top_ips
 
 python main.py test/json.log --suspicious
 ```
+
+## Exemplu de RAPORT html 
+
+
+![  ](terminal_screen/r1.png)
+![  ](terminal_screen/r2.png)
+![  ](terminal_screen/r3.png)
+![  ](terminal_screen/r4.png)
+![  ](terminal_screen/r5.png)
+
+
 ##  Screenshots din terminal
 
 Pentru a demonstra funcționarea aplicației, fiecare comandă prezentată mai sus
