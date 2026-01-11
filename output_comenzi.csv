@@ -1,115 +1,118 @@
-Rezultate după filtrare: 337 înregistrări
+Rezultate după filtrare: 134 înregistrări
 --------------------------------------------------------------------------------
 [2025-01-15 11:53:28] ERROR 400 IP=192.168.0.15    PATH=/profile MSG=Timeout
-[2025-01-15 10:55:28] INFO  403 IP=192.168.0.14    PATH=/search?q=test MSG=OK
-[2025-01-15 05:24:21] WARN  503 IP=192.168.0.17    PATH=/api/search MSG=Deleted
-[2025-01-15 07:17:36] WARN  503 IP=192.168.0.10    PATH=/login MSG=Not found
-[2025-01-15 11:06:21] WARN  302 IP=192.168.0.4     PATH=/profile MSG=Deleted
 [2025-01-15 08:08:09] ERROR 400 IP=192.168.0.9     PATH=/checkout MSG=Update
-[2025-01-15 05:54:58] INFO  502 IP=192.168.0.5     PATH=/login MSG=Failed
-[2025-01-15 08:31:33] INFO  502 IP=192.168.0.13    PATH=/cart MSG=Not found
-[2025-01-15 02:04:19] INFO  503 IP=192.168.0.18    PATH=/cart MSG=Deleted
-[2025-01-15 14:26:50] WARN  500 IP=192.168.0.14    PATH=/dashboard MSG=Not found
 [2025-01-15 09:19:20] ERROR 302 IP=192.168.0.18    PATH=/dashboard MSG=Timeout
-[2025-01-15 05:15:23] INFO  500 IP=192.168.0.19    PATH=/product/123 MSG=Access denied
 [2025-01-15 19:52:05] ERROR 401 IP=192.168.0.16    PATH=/search?q=test MSG=Timeout
-[2025-01-15 21:08:43] INFO  500 IP=192.168.0.18    PATH=/admin MSG=Processing
 [2025-01-15 00:18:35] ERROR 404 IP=192.168.0.4     PATH=/login MSG=Not found
-[2025-01-15 22:10:36] INFO  404 IP=192.168.0.3     PATH=/login MSG=Access denied
-[2025-01-15 20:51:53] WARN  502 IP=192.168.0.19    PATH=/dashboard MSG=OK
-[2025-01-15 21:19:01] INFO  500 IP=192.168.0.18    PATH=/product/123 MSG=Deleted
 [2025-01-15 20:31:16] ERROR 301 IP=192.168.0.10    PATH=/cart MSG=Deleted
 [2025-01-15 20:36:02] ERROR 403 IP=192.168.0.9     PATH=/api/search MSG=Timeout
-[2025-01-15 03:14:11] WARN  401 IP=192.168.0.5     PATH=/api/users MSG=Failed
-[2025-01-15 12:48:11] WARN  200 IP=192.168.0.7     PATH=/register MSG=Deleted
-[2025-01-15 19:20:56] INFO  404 IP=192.168.0.16    PATH=/admin MSG=Failed
 [2025-01-15 01:47:24] ERROR 503 IP=192.168.0.1     PATH=/api/search MSG=Deleted
 [2025-01-15 18:40:38] ERROR 401 IP=192.168.0.7     PATH=/admin MSG=Deleted
 [2025-01-15 10:23:26] ERROR 302 IP=192.168.0.6     PATH=/products MSG=Timeout
 [2025-01-15 02:42:17] ERROR 401 IP=192.168.0.19    PATH=/checkout MSG=Timeout
 [2025-01-15 21:01:01] ERROR 500 IP=192.168.0.18    PATH=/checkout MSG=Deleted
-[2025-01-15 23:16:29] WARN  401 IP=192.168.0.4     PATH=/products MSG=Update
 [2025-01-15 00:42:32] ERROR 403 IP=192.168.0.19    PATH=/dashboard MSG=OK
-... și încă 307 rezultate
+[2025-01-15 17:11:26] ERROR 301 IP=192.168.0.10    PATH=/api/search MSG=Deleted
+[2025-01-15 01:17:43] ERROR 401 IP=192.168.0.18    PATH=/api/search MSG=Not found
+[2025-01-15 00:53:43] ERROR 401 IP=192.168.0.6     PATH=/search?q=test MSG=Not found
+[2025-01-15 11:12:41] ERROR 200 IP=192.168.0.18    PATH=/checkout MSG=Not found
+[2025-01-15 01:56:01] ERROR 401 IP=192.168.0.0     PATH=/api/search MSG=OK
+[2025-01-15 00:56:22] ERROR 502 IP=192.168.0.2     PATH=/register MSG=Timeout
+[2025-01-15 15:55:59] ERROR 401 IP=192.168.0.9     PATH=/dashboard MSG=Processing
+[2025-01-15 03:14:36] ERROR 401 IP=192.168.0.17    PATH=/logout MSG=Timeout
+[2025-01-15 11:07:21] ERROR 403 IP=192.168.0.6     PATH=/api/users MSG=Processing
+[2025-01-15 21:09:01] ERROR 200 IP=192.168.0.17    PATH=/profile MSG=Processing
+[2025-01-15 18:30:51] ERROR 502 IP=192.168.0.13    PATH=/api/users MSG=Update
+[2025-01-15 19:26:45] ERROR 200 IP=192.168.0.12    PATH=/admin MSG=OK
+[2025-01-15 08:18:40] ERROR 200 IP=192.168.0.10    PATH=/cart MSG=Failed
+[2025-01-15 07:44:50] ERROR 403 IP=192.168.0.10    PATH=/admin MSG=Update
+[2025-01-15 12:39:50] ERROR 404 IP=192.168.0.15    PATH=/api/users MSG=Timeout
+[2025-01-15 06:19:38] ERROR 302 IP=192.168.0.1     PATH=/search?q=test MSG=Update
+[2025-01-15 00:17:56] ERROR 302 IP=192.168.0.8     PATH=/dashboard MSG=OK
+... și încă 104 rezultate
 --------------------------------------------------------------------------------
 
-GRAFIC — Top 10 IP-uri periculoase (scor risc)
+Analiza generala Log-uri
+============================================================
+Total inregistrari: 371
+Perioada analizata: 2025-01-15 00:02:27 -> 2025-01-15 23:56:29
+Distributie pe niveluri:
+  INFO   : 108 (29.11%)
+  WARN   : 159 (42.86%)
+  ERROR  : 104 (28.03%)
 ------------------------------------------------------------
-192.168.1.20    | ████████████████████████████ 7
-192.168.1.30    | ████████████████████         5
-192.168.1.10    | ████████████████             4
-192.168.1.40    | ████████████████             4
-192.168.1.50    | ████████████████             4
-192.168.1.13    | ████████████████             4
-192.168.1.14    | ████████████████             4
-192.168.1.15    | ████████████████             4
-192.168.1.17    | ████████████████             4
-192.168.1.18    | ████████████████             4
+Distributie pe coduri HTTP:
+  302: 37 (9.97%)
+  401: 47 (12.67%)
+  500: 30 (8.09%)
+  200: 38 (10.24%)
+  503: 46 (12.40%)
+  403: 38 (10.24%)
+  301: 33 (8.89%)
+  404: 46 (12.40%)
+  502: 25 (6.74%)
+  400: 28 (7.55%)
+  504: 3 (0.81%)
 ------------------------------------------------------------
-
-Datele despre aceste IP-uri
-========================================
-
-1. 192.168.1.20 (5 cereri)
- • 1 încercări /admin (scanare)
- • 5 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-03 00:17:30
- Status: ALERTĂ RIDICATĂ
-
-2. 192.168.1.30 (5 cereri)
- • 5 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-03 01:27:30
- Status: ALERTĂ RIDICATĂ
-
-3. 192.168.1.10 (4 cereri)
- • 4 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-02 23:07:30
- Status: Monitorizare
-
-4. 192.168.1.40 (4 cereri)
- • 4 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-02 20:47:30
- Status: Monitorizare
-
-5. 192.168.1.50 (4 cereri)
- • 4 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-02 21:57:30
- Status: Monitorizare
-
-6. 192.168.1.13 (4 cereri)
- • 4 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-02 23:28:30
- Status: Monitorizare
-
-7. 192.168.1.14 (4 cereri)
- • 4 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-02 23:35:30
- Status: Monitorizare
-
-8. 192.168.1.15 (4 cereri)
- • 4 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-02 23:42:30
- Status: Monitorizare
-
-9. 192.168.1.17 (4 cereri)
- • 4 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-02 23:56:30
- Status: Monitorizare
-
-10. 192.168.1.18 (4 cereri)
- • 4 mesaje ERROR/WARN
- • Ultima activitate: 2026-01-03 00:03:30
- Status: Monitorizare
-
-
-🚨 ALERT REPORT — SPIKES DETECTATE
-+======================+==============+=======+================================+
-| TIP                  | IP           | COUNT | DESCRIERE                      |
-+======================+==============+=======+================================+
-| Traffic Spike        | 192.168.0.10 | 25    | IP 192.168.0.10 are 25 cereri  |
-| Error Spike          | 192.168.0.10 | 11    | IP 192.168.0.10 are 11 erori   |
-| Error Spike          | 192.168.1.77 | 24    | IP 192.168.1.77 are 24 erori   |
-| 404 Spike            | 192.168.1.77 | 20    | IP 192.168.1.77 a generat 20 e |
-| Sensitive Path Spike | 192.168.1.99 | 3     | IP 192.168.1.99 a accesat 3 ru |
-+======================+==============+=======+================================+
+Distributie metode HTTP:
+  DELETE: 79 (21.29%)
+  POST  : 87 (23.45%)
+  GET   : 134 (36.12%)
+  PUT   : 71 (19.14%)
+------------------------------------------------------------
+Top rute accesate:
+  /login               43 (11.59%)
+  /api/users           33 (8.89%)
+  /search?q=test       33 (8.89%)
+  /product/123         26 (7.01%)
+  /admin               26 (7.01%)
+  /checkout            23 (6.20%)
+  /register            23 (6.20%)
+  /products            22 (5.93%)
+  /logout              21 (5.66%)
+  /profile             20 (5.39%)
+------------------------------------------------------------
+IP-uri unice: 30
+Top 10 IP-uri dupa numar de cereri:
+  192.168.0.10    21 cereri (5.66%)
+  192.168.0.8     21 cereri (5.66%)
+  192.168.0.16    19 cereri (5.12%)
+  192.168.0.3     19 cereri (5.12%)
+  192.168.0.19    19 cereri (5.12%)
+  192.168.0.17    18 cereri (4.85%)
+  192.168.0.6     17 cereri (4.58%)
+  192.168.0.0     17 cereri (4.58%)
+  192.168.0.11    17 cereri (4.58%)
+  192.168.0.2     16 cereri (4.31%)
+------------------------------------------------------------
+Distributie pe surse log:
+  apache     371 (100.00%)
+------------------------------------------------------------
+Trafic pe ore:
+  00:00  13 inregistrari (3.50%)
+  01:00  10 inregistrari (2.70%)
+  02:00  14 inregistrari (3.77%)
+  03:00  17 inregistrari (4.58%)
+  04:00  15 inregistrari (4.04%)
+  05:00  13 inregistrari (3.50%)
+  06:00  14 inregistrari (3.77%)
+  07:00  14 inregistrari (3.77%)
+  08:00  12 inregistrari (3.23%)
+  09:00  16 inregistrari (4.31%)
+  10:00  51 inregistrari (13.75%)
+  11:00  11 inregistrari (2.96%)
+  12:00  17 inregistrari (4.58%)
+  13:00  15 inregistrari (4.04%)
+  14:00  14 inregistrari (3.77%)
+  15:00  11 inregistrari (2.96%)
+  16:00  14 inregistrari (3.77%)
+  17:00  21 inregistrari (5.66%)
+  18:00  11 inregistrari (2.96%)
+  19:00  14 inregistrari (3.77%)
+  20:00  10 inregistrari (2.70%)
+  21:00  13 inregistrari (3.50%)
+  22:00  18 inregistrari (4.85%)
+  23:00  13 inregistrari (3.50%)
+============================================================
 

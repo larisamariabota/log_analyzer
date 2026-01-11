@@ -51,7 +51,7 @@ python /app/main.py test/apache.log --report html --output /out/raport.html --se
 python main.py test/apache.log --report html --output raport.html
 python main.py test/nginx_access.log --spikes
 python main.py test/apache.log --stats
-python main.py test/custom.log --date 2025-01-15
+python main.py test/custom.log --filter ERROR --date 2025-01-15
 python main.py test/nginx_error.log --top_ips --dangerous
 python main.py test/nginx_error.log --filter ERROR
 python main.py test/custom.log --alert
@@ -72,10 +72,16 @@ python main.py test/json.log --suspicious
 
 ##  Screenshots din terminal
 
-
+### RPORT DE ALERTE, APAR MULTE SPIKE-URI
 !["RPORT DE ALERTE, APAR MULTE SPIKE-URI"  ](terminal_screen/alert.png)
-![python main.py test/custom.log --date 2025-01-15  ](terminal_screen/terminal_screen/date_2025-01-15.png)
+### EXPROT DOAR LOG-URILE CARE CONTOON ERROR, IN DATA X
+![python main.py test/custom.log --date 2025-01-15  ](terminal_screen/terminal_screen/filter.png)
+### TOP 10 IP-URI PERICULOASE 
 ![ python main.py test/nginx_error.log --top_ips --dangerous ](terminal_screen/ips_dangerous.png)
+### STATISTCI GENERALE DESPRE FISIERUL LOG 
+![ ](terminal_screen/terminal_screen/stats1.png)
+![](terminal_screen/terminal_screen/stats2.png)
+
 
 
 ## Fisierul output_comenzi.csv
