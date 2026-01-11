@@ -78,8 +78,9 @@ python main.py test/json.log --suspicious
 ![  ](terminal_screen/terminal_screen/filter.png)
 ### TOP 10 IP-URI PERICULOASE 
 ![ python main.py test/nginx_error.log --top_ips --dangerous ](terminal_screen/ips_dangerous.png)
+![ python main.py test/nginx_error.log --top_ips --dangerous ](terminal_screen/ips_dangerous2.png)
 ### STATISTCI GENERALE DESPRE FISIERUL LOG 
-![ ](terminal_screen/stats1.png)
+![ ](terminal_screen/stats.png)
 ![](terminal_screen/stats2.png)
 
 
