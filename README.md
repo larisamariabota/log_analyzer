@@ -75,12 +75,12 @@ python main.py test/json.log --suspicious
 ### RPORT DE ALERTE, APAR MULTE SPIKE-URI
 !["RPORT DE ALERTE, APAR MULTE SPIKE-URI"  ](terminal_screen/alert.png)
 ### EXPROT DOAR LOG-URILE CARE CONTOON ERROR, IN DATA X
-![python main.py test/custom.log --date 2025-01-15  ](terminal_screen/terminal_screen/filter.png)
+![  ](terminal_screen/terminal_screen/filter.png)
 ### TOP 10 IP-URI PERICULOASE 
 ![ python main.py test/nginx_error.log --top_ips --dangerous ](terminal_screen/ips_dangerous.png)
 ### STATISTCI GENERALE DESPRE FISIERUL LOG 
-![ ](terminal_screen/terminal_screen/stats1.png)
-![](terminal_screen/terminal_screen/stats2.png)
+![ ](terminal_screen/stats1.png)
+![](terminal_screen/stats2.png)
 
 
 
