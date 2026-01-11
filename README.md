@@ -74,8 +74,7 @@ python main.py test/json.log --suspicious
 
 ### RPORT DE ALERTE, APAR MULTE SPIKE-URI
 !["RPORT DE ALERTE, APAR MULTE SPIKE-URI"  ](terminal_screen/alert.png)
-### EXPROT DOAR LOG-URILE CARE CONTOON ERROR, IN DATA X
-![  ](terminal_screen/terminal_screen/filter.png)
+
 ### TOP 10 IP-URI PERICULOASE 
 ![ python main.py test/nginx_error.log --top_ips --dangerous ](terminal_screen/ips_dangerous.png)
 ![ python main.py test/nginx_error.log --top_ips --dangerous ](terminal_screen/ips_dangerous2.png)
@@ -93,12 +92,9 @@ Rezultatele comenzilor sunt salvate și în `output_comenzi.csv`.
 project/
 ├── main.py              # entry point CLI
 ├── conversion/          # parsare & normalizare loguri
-│   ├── loader.py
-│   └── detector.py
-├── raport/              # generare raport HTML
-│   └── creaza_raport.py
+├── raport_html           # generare raport HTML
 ├── test/                # fișiere log de test
-├── terminal_screen/     # screenshots din terminal
+├── grouping\    # creere dictionre standard dupa crieriu specific
 ├── output_comenzi.csv   # rezultate comenzi
 ├── Dockerfile
 ├── requirements.txt
