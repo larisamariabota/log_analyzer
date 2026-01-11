@@ -46,17 +46,6 @@ HTML complet cu statistici, top IP-uri, anomalii și alerte de securitate.
 docker run --rm -p 8003:8000 -v "${PWD}:/app" -v "${PWD}:/out" log_analyzer \
 python /app/main.py test/apache.log --report html --output /out/raport.html --serve
 ```
-
-
-## Exemplu de RAPORT html 
-
-
-![  ](terminal_screen/r1.png)
-![  ](terminal_screen/r2.png)
-![  ](terminal_screen/r3.png)
-![  ](terminal_screen/r4.png)
-![  ](terminal_screen/r5.png)
-
 ## Exemple de rulare 
 ```bash
 python main.py test/apache.log --report html --output raport.html
@@ -70,13 +59,21 @@ python main.py test/syslog.log --top_ips
 python main.py test/json.log --suspicious
 
 ```
+
+## Exemplu de RAPORT html 
+
+
+![  ](terminal_screen/r1.png)
+![  ](terminal_screen/r2.png)
+![  ](terminal_screen/r3.png)
+![  ](terminal_screen/r4.png)
+![  ](terminal_screen/r5.png)
+
+
 ##  Screenshots din terminal
 
-Pentru a demonstra funcționarea aplicației, fiecare comandă prezentată mai sus
-a fost rulată în terminal, iar output-ul rezultat a fost capturat sub formă
-de screenshot.
-Toate aceste capturi sunt disponibile în folderul: `terminal_screen/`
-![python main.py test/custom.log --alert  ](terminal_screen/alert.png)
+
+!["RPORT DE ALERTE, APAR MULTE SPIKE-URI"  ](terminal_screen/alert.png)
 ![python main.py test/custom.log --date 2025-01-15  ](terminal_screen/terminal_screen/date_2025-01-15.png)
 ![ python main.py test/nginx_error.log --top_ips --dangerous ](terminal_screen/ips_dangerous.png)
 
