@@ -1,5 +1,5 @@
 import re
-
+#Jan 15 08:58:19 server app[100]: OK from 192.168.0.14
 detect_syslog_regex = re.compile(
     r'^(?:<\d+>)?[A-Z][a-z]{2}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2}\s+\S+'
 )

@@ -116,11 +116,14 @@ def main():
         import http.server, socketserver, os
 
         port = 8000
+        #piblioteca os schimba directorul curent la serverul fisierului de raport
         os.chdir(os.path.dirname(args.output) or ".")
         print(f"🌐 Link: http://localhost:{port}/{os.path.basename(args.output)}")
-
+        # poorneste un server simplu http pt a gazdui fisierul 
+        # biblcioteca socketserver e folosita pt a crea serverul 
         with socketserver.TCPServer(("0.0.0.0", port), http.server.SimpleHTTPRequestHandler) as httpd:
-            httpd.serve_forever()
+            httpd.serve_forever() # serverul va rula pana la intruperea manuala
+        
 
 
      
