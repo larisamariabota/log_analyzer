@@ -8,7 +8,7 @@
 ##  Aplicație CLI în Python pentru analiza fișierelor de log (Apache, Nginx, Syslog, JSON, custom).
 ##  Permite filtrarea intrărilor, generarea de statistici, detectarea anomaliilor (spike-uri de erori, activitate suspectă, alerte de securitate) și exportul rezultatelor în raport HTML. Include și un mod de monitorizare live (dashboard) care citește doar liniile noi din log.
 
-## 📌 Funcționalități
+## Funcționalități
 
 ###  Analiză & filtrare
 - Suport pentru fișiere de log: **Apache / Nginx / Syslog / JSON / Custom**
@@ -34,7 +34,7 @@
 - Setarea fișierului de output: `--output` (default: `raport_complet.html`)
 
 
-### 🌐 Server web (vizualizare raport HTML)
+###  Server web (vizualizare raport HTML)
 Aceasta este funcționalitatea principală a aplicației, care generează un raport
 HTML complet cu statistici, top IP-uri, anomalii și alerte de securitate.
 
@@ -46,6 +46,22 @@ HTML complet cu statistici, top IP-uri, anomalii și alerte de securitate.
 docker run --rm -p 8003:8000 -v "${PWD}:/app" -v "${PWD}:/out" log_analyzer \
 python /app/main.py test/apache.log --report html --output /out/raport.html --serve
 ```
+
+## Instalare și Rulare (Docker)
+-descarca imaginea din docker
+``` bash
+docker pull larisamariabota/log_analyzer:latest
+```
+## Exemple de rulare in Docker
+``` bash
+docker run --rm larisamariabota/log_analyzer:latest python main.py test/apache.log --stats
+docker run --rm larisamariabota/log_analyzer:latest python main.py test/syslog.log --top_ips --dangerous
+docker run --rm larisamariabota/log_analyzer python main.py  test/nginx_access.log --suspicious
+ docker run --rm larisamariabota/log_analyzer python  main.py test/json.log --date 2025-01-15
+
+```
+
+
 ## Exemple de rulare 
 ```bash
 python main.py test/apache.log --report html --output raport.html
@@ -59,6 +75,9 @@ python main.py test/syslog.log --top_ips
 python main.py test/json.log --suspicious
 
 ```
+ 
+
+
 
 ## Exemplu de RAPORT html 
 
